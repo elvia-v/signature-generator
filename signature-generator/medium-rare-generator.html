@@ -1,0 +1,722 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <!-- Compressed CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css" crossorigin="anonymous">
+
+    <!-- Compressed JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+
+    <!-- JS -->
+    <script>
+      function createSpan(id, css, val) {
+          var sp = document.createElement("span");
+          var br = document.createElement("br");
+          sp.setAttribute("id", id);
+          sp.setAttribute("style", css);
+          sp.innerHTML = val;
+
+          /*Appends span and a break to #sigBlock*/
+          document.querySelector("#sigBlock").appendChild(sp);
+          document.querySelector("#sigBlock").appendChild(br);
+          return sp;
+      }
+
+      /*Sets spans in #signature div to the values input in form components.*/
+      function preview() {
+          preview2();
+          /* The right column of the signature table*/
+          document.querySelector("#sigBlock").innerHTML = "";
+
+          /* Name*/
+          if (firstName.value.length > 0) {
+              createSpan("name", "font-weight:bolder;", firstName.value);
+          }
+
+          /* Pronouns*/
+          if (pronouns.value.length > 0) {
+              createSpan("name", "", pronouns.value);
+          }
+
+          /* Position*/
+          if (pos.value.length > 0) {
+              createSpan("position", "", position.value);
+          }
+
+          /* Department*/
+          if (department.value.length > 0) {
+              createSpan("department", "", department.value);
+          }
+
+          /* Address*/
+          if (address1.value.length > 0) {
+              createSpan("address1", "", address1.value);
+          }
+
+          /* City,State,Zip*/
+          if (address2.value.length > 0) {
+              createSpan("address2", "", address2.value);
+          }
+
+          /* Location*/
+          if (location.value.length > 0) {
+              createSpan("location", "", location.value);
+          }
+
+          /* Phone1*/
+          if (tel.value.length > 0) {
+              createSpan("phone", "", phone1.value);
+          }
+
+          /* Phone2*/
+          if (tel2.value.length > 0) {
+              createSpan("phone2", "", phone2.value);
+          }
+
+          /* Email*/
+          if (email.value.length > 0) {
+              createSpan(
+                  "email",
+                  "font-size: .8rem;",
+                  '<a href="mailto:' + email.value + '">' + email.value + "</a>"
+              );
+          }
+
+          /* Department Website*/
+          if (dptsite.value.length > 0) {
+              /*RegEx's to account for CWU sites not hosted on cwu.edu*/
+              var library = new RegExp(/(lib.cwu.edu)/gim);
+              var wildcatshop = new RegExp(/(wildcatshop.net)/gim);
+              var wildcatsports = new RegExp(/(wildcatsports.com)/gim);
+
+              /*Replaces 5 different variations of cwu.edu and a single preceding slash */
+              var cwuedu = new RegExp(
+                  /(^\/)?(((http(s)?:)?(\/\/)?(www\.)?)?cwu\.edu(\/)?)?/gim
+              );
+
+              /* Checking Department Website value against library, wildcatshop, and wildcatsports RegExps*/
+              if (library.test(dptsite.value) == true) {
+                  dptsite.value = "library";
+              } else if (wildcatshop.test(dptsite.value) == true) {
+                  dptsite.value = "wildcatshop";
+              } else if (wildcatsports.test(dptsite.value) == true) {
+                  dptsite.value = "athletics";
+              }
+
+              /* Checks Department Website value against cwuedu RegExp*/
+              dptsite.value = dptsite.value.replace(cwuedu, "");
+              createSpan(
+                  "website",
+                  "font-size: .8rem;",
+                  '<a href="https://www.cwu.edu/' +
+                  dptsite.value +
+                  '" target="_blank">' +
+                  "cwu.edu/" +
+                  dptsite.value +
+                  "</a>"
+              );
+          } else {
+              /*Creates a span filled with 'cwu.edu' if dptsite length <= 0.*/
+              createSpan(
+                  "website",
+                  "font-size: .8rem;",
+                  '<a href="https://www.cwu.edu" target="_blank">' + "cwu.edu" + "</a>"
+              );
+          }
+      }
+
+
+
+      /*Horizontal Signature*/
+
+      /*Helper function to dynamically create spans.*/
+      function createSpan2(id, css, val) {
+          var sp = document.createElement("span");
+          var br = document.createElement("br");
+          sp.setAttribute("id", id);
+          sp.setAttribute("style", css);
+          sp.innerHTML = val;
+
+          /*Appends span and a break to #sigBlock*/
+          document.querySelector("#horiSigBlock").appendChild(sp);
+          document.querySelector("#horiSigBlock").appendChild(br);
+          return sp;
+      }
+
+      /*Sets spans in #signature div to the values input in form components.*/
+      function preview2() {
+          /* The right column of the signature table*/
+          document.querySelector("#horiSigBlock").innerHTML = "";
+
+          /* Name*/
+          if (firstName.value.length > 0) {
+              createSpan2("firstName", "font-weight:bolder;", firstName.value);
+          }
+
+          /* Pronouns*/
+          if (pronouns.value.length > 0) {
+              createSpan2("pronouns", "", pronouns.value);
+          }
+
+          /* Position*/
+          if (pos.value.length > 0) {
+              createSpan2("position", "", pos.value);
+          }
+
+          /* Department*/
+          if (department.value.length > 0) {
+              createSpan2("department", "", department.value);
+          }
+
+          /* Address*/
+          if (address1.value.length > 0) {
+              createSpan2("address1", "", address1.value);
+          }
+
+          /* City,State,Zip*/
+          if (address2.value.length > 0) {
+              createSpan2("address2", "", address2.value);
+          }
+
+          /* Location*/
+          if (location.value.length > 0) {
+              createSpan2("location", "", location.value);
+          }
+
+          /* Phone1*/
+          if (tel.value.length > 0) {
+              createSpan2("phone", "", tel.value);
+          }
+
+          /* Phone2*/
+          if (tel2.value.length > 0) {
+              createSpan2("phone2", "", tel2.value);
+          }
+
+          /* Email*/
+          if (email.value.length > 0) {
+              createSpan2(
+                  "email",
+                  "font-size: .8rem;",
+                  '<a href="mailto:' + email.value + '">' + email.value + "</a>"
+              );
+          }
+
+          /* Department Website*/
+          if (dptsite.value.length > 0) {
+              /*RegEx's to account for CWU sites not hosted on cwu.edu*/
+              var library = new RegExp(/(lib.cwu.edu)/gim);
+              var wildcatshop = new RegExp(/(wildcatshop.net)/gim);
+              var wildcatsports = new RegExp(/(wildcatsports.com)/gim);
+
+              /*Replaces 5 different variations of cwu.edu and a single preceding slash */
+              var cwuedu = new RegExp(
+                  /(^\/)?(((http(s)?:)?(\/\/)?(www\.)?)?cwu\.edu(\/)?)?/gim
+              );
+
+              /* Checking Department Website value against library, wildcatshop, and wildcatsports RegExps*/
+              if (library.test(dptsite.value) == true) {
+                  dptsite.value = "libraries";
+              } else if (wildcatshop.test(dptsite.value) == true) {
+                  dptsite.value = "wildcatshop";
+              } else if (wildcatsports.test(dptsite.value) == true) {
+                  dptsite.value = "athletics";
+              }
+
+              /* Checks Department Website value against cwuedu RegExp*/
+              dptsite.value = dptsite.value.replace(cwuedu, "");
+              createSpan2(
+                  "website",
+                  "font-size: .8rem;",
+                  '<a href="https://www.cwu.edu/' +
+                  dptsite.value +
+                  '" target="_blank">' +
+                  "cwu.edu/" +
+                  dptsite.value +
+                  "</a>"
+              );
+          } else {
+              /*Creates a span filled with 'cwu.edu' if dptsite length <= 0.*/
+              createSpan2(
+                  "website",
+                  "font-size: .8rem;",
+                  '<a href="https://www.cwu.edu" target="_blank">' + "cwu.edu" + "</a>"
+              );
+          }
+      }
+
+      /*Replaces the signature logo with CWU Medallion*/
+      function replaceMedallion() {
+          var medallion = document.getElementById("cwulogo");
+          medallion.setAttribute(
+              "src",
+              "https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png"
+          );
+          medallion.setAttribute("width", "90");
+          medallion.setAttribute("height", "28");
+      }
+
+      /*Replaces the signature logo with Wildcat Medallion*/
+      function replaceAthe() {
+          var wildcat = document.getElementById("cwulogo");
+          wildcat.setAttribute(
+              "src",
+              "https://www.cwu.edu/about/media-resources/brand/_images/cwu-athletics-rgb.png"
+          );
+          wildcat.setAttribute("width", "90");
+          wildcat.setAttribute("height", "90");
+      }
+
+      /*Replaces the signature logo with CWU Medallion*/
+      function horiReplaceMedallion() {
+          var medallion = document.getElementById("horicwulogo");
+          medallion.setAttribute(
+              "src",
+              "https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png"
+          );
+          medallion.setAttribute("width", "90");
+          medallion.setAttribute("height", "28");
+      }
+
+      /*Replaces the signature logo with Wildcat Medallion*/
+      function horiReplaceAthe() {
+          var wildcat = document.getElementById("horicwulogo");
+          wildcat.setAttribute(
+              "src",
+              "https://www.cwu.edu/about/media-resources/brand/_images/cwu-athletics-rgb.png"
+          );
+          wildcat.setAttribute("width", "90");
+          wildcat.setAttribute("height", "90");
+      }
+
+      /*Selects contents of container div on click, then copies to clipboard.*/
+      function copyText(containerid) {
+          /*Only runs if validate() returns True*/
+          if (!validate());
+          else if (document.selection) {
+              /*Modern copy function*/
+              var range = document.body.createTextRange();
+              console.log(range);
+              range.moveToElementText(document.getElementById(containerid));
+              range.select();
+              console.log('post moveToElementText' + range);
+              document.execCommand("Copy");
+              alert("Signature copied successfully!");
+              /* Copy function for legacy browsers*/
+          } else if (window.getSelection) {
+              var range = document.createRange();
+              range.selectNode(document.getElementById(containerid));
+              window.getSelection().removeAllRanges();
+              window.getSelection().addRange(range);
+              document.execCommand("Copy");
+              alert("Signature copied successfully!");
+          }
+      }
+
+      /*Form validation. Returns true if all required fields are filled out and email is valid.*/
+      function validate() {
+          var a = true;
+
+          /*Requires something to be entered into 'Name'*/
+          if (document.signatureForm.firstName.value == "") {
+              alert("Please enter your name.");
+              document.signatureForm.firstName.focus();
+              a = false;
+
+              /*Requires something to be entered into 'Email'*/
+          } else if (document.signatureForm.email.value == "") {
+              alert("Please enter your email.");
+              document.signatureForm.email.focus();
+              a = false;
+
+              /*Email field is validated by default HTML5 regex.*/
+          } else if (!document.signatureForm.email.checkValidity()) {
+              alert("Please enter a valid email.");
+              document.signatureForm.email.focus();
+              a = false;
+          }
+          return a;
+      }
+
+      /*phone number formatting*/
+      function formatPhone(e) {
+          var phone = document.querySelector("#tel");
+          var val = "",
+              a = 0,
+              f = 0,
+              l = 0;
+          val = phone.value;
+          val = val.replace(/\D/g, "");
+          val = val.length > 10 ? val.slice(0, 10) : val;
+          if (val.length !== 0 && e.key !== "Backspace") {
+              a = val.slice(0, 3);
+              f = "-" + val.slice(3, 6) + "-";
+              l = val.slice(6, 10) + "";
+              val = a + f + l;
+          }
+          phone.value = val;
+      }
+
+      /*phone number formatting*/
+      function formatPhone2(e) {
+          var phone = document.querySelector("#tel2");
+          var val = "",
+              a = 0,
+              f = 0,
+              l = 0;
+          val = phone.value;
+          val = val.replace(/\D/g, "");
+          val = val.length > 10 ? val.slice(0, 10) : val;
+          if (val.length !== 0 && e.key !== "Backspace") {
+              a = val.slice(0, 3);
+              f = "-" + val.slice(3, 6) + "-";
+              l = val.slice(6, 10) + "";
+              val = a + f + l;
+          }
+          phone.value = val;
+      }
+    </script>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/app.css" />
+    <!-- CWU CSS -->
+    <link rel="stylesheet" href="modaal.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="cwu-custom.css">
+  </head>
+  <body>
+
+    <!-- Top info callout-->
+    <div class="grid-x grid-padding-x">
+      <div class="large-12 cell">
+        <div class="callout">
+          <h1>Your Info</h1>
+          <p>
+            Step 1 - The information in this form is not saved. If you close this window or refresh your browser, your information will be lost.
+            Enter your information in the form below.
+            Fill in all the fields to get a better idea of what your Email signature will look like with your information.
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div class="grid-x grid-padding-x">
+        <div class="column">
+            <div class="row">
+        <div class="large-8 cell">
+          <hr />
+          <form id="signatureForm" name="signatureForm">
+            <div class="grid-x grid-padding-x">
+              <div class="large-12 cell">
+                <label class="sig-label" for="firstName">Full Name</label>
+                <input class="formInput form__field" id="firstName" name="firstName" onkeyup="preview()" type="text" placeholder="Wellington Wildcat"/>
+              </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+              <div class="large-4 medium-4 cell">
+                <label class="sig-label" for="pronouns">Pronouns</label>
+                <input class="formInput form__field" id="pronouns" name="pronouns" onkeyup="preview()" type="text" placeholder="He/Him/His" />
+              </div>
+              <div class="large-4 medium-4 cell">
+                <label class="sig-label" for="title">Title</label>
+                <input class="formInput form__field" id="title" name="title" onkeyup="preview()" type="text" placeholder="Mascot" />
+              </div>
+              <div class="large-4 medium-4 cell">
+                <label class="sig-label" for="department">Department</label>
+                <input class="formInput form__field" id="department" name="department" onkeyup="preview()" type="text" placeholder="Department" />
+              </div>
+              <div class="large-12 cell">
+                <label class="sig-label" for="address1">Address</label>
+                <input class="formInput form__field" id="address1" name="address1" onkeyup="preview()"type="text" placeholder="400 E. University Way" />
+              </div>
+              <div class="large-12 cell">
+                <label class="sig-label" for="address2">City, State, Zip</label>
+                <input class="formInput form__field" id="address2" name="address2" onkeyup="preview()" type="text" placeholder="Ellensburg, WA 98926" />
+              </div>
+              <div class="large-12 medium-4 cell">
+                <label class="sig-label" for="location">Location</label>
+                <input class="formInput form__field" id="location" name="location" onkeyup="preview()" type="text" placeholder="SURC 236" />
+              </div>
+              <div class="large-12 medium-4 cell">
+                <label class="sig-label" for="phone1">Phone</label>
+                <input class="formInput form__field" id="phone1" name="phone1" onkeyup="preview()" type="text" placeholder="509-963-1111" />
+              </div>
+              <div class="large-12 medium-4 cell">
+                <label class="sig-label" for="phone2">Phone 2</label>
+                <input class="formInput form__field" id="phone2" name="phone2" onkeyup="preview()" type="text" placeholder="509-963-2222" />
+              </div>
+              <div class="large-12 cell">
+                <label class="sig-label" for="email">Email</label>
+                <input class="formInput form__field" id="email" name="email" onkeyup="preview()" type="text" placeholder="wellington.wildcat@cwu.edu" />
+              </div>
+              <div class="large-12 cell">
+                <label class="sig-label" for="website">Department Website</label>
+                <input class="formInput form__field" id="website" name="website" onkeyup="preview()" type="text" placeholder="For cwu.edu/brand, type 'brand'" />
+              </div>
+          </form>
+          <div class="small 6 columns">
+            <div class="small-12 cell">
+                <div class="column align-right">
+                        <!-- Select a Style block-->
+            <h3 class="logo-label" id="selectStyleLabel">Select a Style</h3>
+                <!-- Medallion -->
+                <img class="cwuMedallion" onclick="replaceMedallion(), horiReplaceMedallion()"
+                    src="cwu-logo-web-display.png"/>
+                <!-- Athletics -->
+                <span class="athleticslogo">
+                    <img class="cwuWildcat" onclick="replaceAthe(), horiReplaceAthe()"
+                        src="cwu-athletics-rgb.png" /><br />
+                    <small>For Athletics use only</small>
+                </span>
+                </div>
+                </div>
+                </div>
+
+            </div>
+            </div>
+
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- Signature table -->
+      <table class="body"
+      style="background:#fefefe;border-collapse:collapse;border-spacing:0;color:#0a0a0a;font-family:helvetica,Ariel,sans-serif;font-size:16px;font-weight:400!important;height:unset!important;line-height:1.3;margin:0;padding:0;text-align:left;vertical-align:middle;width:unset!important">
+      <tr>
+          <td class="center" align="center" valign="top">
+              <center>
+                  <table align="center" class="container body-border float-center"
+                      style="border-collapse:collapse;border-spacing:0;font-weight:400!important">
+                      <tbody>
+                          <tr>
+                              <td>
+                                  <table class="row"
+                                      style="border-collapse:collapse;border-spacing:0;font-weight:400!important">
+                                      <tbody>
+                                          <tr>
+                                              <th class="small-12 large-12 columns first last">
+                                                  <table
+                                                      style="border-collapse:collapse;border-spacing:0;font-weight:400!important">
+                                                      <tbody>
+                                                          <tr>
+                                                              <th><!-- Signature Box --><!-- Vertical Signature Box -->
+                                                                  <div class="grid-x cell small-12 verticalSig"
+                                                                      id="signature"
+                                                                      onclick="copyText('vert-sig')"
+                                                                      title="Click to copy signature"
+                                                                      style="border:dashed 2px;justify-content:left;padding:25px">
+                                                                      <!-- For some reason this child div has to be here. Otherwise a newline gets added to table when pasting into Outlook -->
+                                                                      <div id="signatureChild">
+                                                                          <table cellpadding="0" cellspacing="0"
+                                                                              id="vert-sig" class="vert-sig"
+                                                                              style="background:#fff;border-collapse:collapse;border-spacing:0;font-weight:400!important;text-align:left">
+                                                                              <tbody>
+                                                                                  <tr>
+                                                                                      <td
+                                                                                          style="width:max-content">
+                                                                                          <img height="34"
+                                                                                              width="110"
+                                                                                              id="cwulogo"
+                                                                                              class="cwulogo"
+                                                                                              src="https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png"
+                                                                                              style="width:110px!important"/>
+                                                                                      </td>
+                                                                                  </tr>
+                                                                                  <tr>
+                                                                                      <td
+                                                                                          style="width:max-content">
+                                                                                          &#160;</td>
+                                                                                  </tr>
+                                                                                  <tr><!-- Column -->
+                                                                                      <td id="sigBlock"
+                                                                                          class="vertSigBlock"
+                                                                                          valign="middle"
+                                                                                          style="width:max-content">
+                                                                                          <span
+                                                                                              id="firstName">Firstname
+                                                                                              Lastname</span><br /><span
+                                                                                              id="pronouns">Pronouns</span><br /><span
+                                                                                              id="position">Title</span><br /><span
+                                                                                              id="department">Department</span><br /><span
+                                                                                              id="address1">Address</span><br /><span
+                                                                                              id="address2">City,
+                                                                                              State,
+                                                                                              ZIP</span><br /><span
+                                                                                              id="location">Location</span><br /><span
+                                                                                              id="phone">Phone</span><br /><span
+                                                                                              id="phone2">Phone
+                                                                                              2</span><br /><span
+                                                                                              id="email">Email</span><br /><span
+                                                                                              id="website"><a
+                                                                                                  href="https://www.cwu.edu"
+                                                                                                  rel="noopener"
+                                                                                                  target="_blank"
+                                                                                                  style="color:#000!important;font-size:16px!important;text-decoration:underline!important">cwu.edu</a></span>
+                                                                                      </td>
+                                                                                  </tr>
+                                                                              </tbody>
+                                                                          </table>
+                                                                      </div>
+                                                                  </div>
+                                                                  <p>&#160;</p>
+                                                                  <div class="grid-x small-12"
+                                                                      id="copyButtonContainer"><input
+                                                                          id="vertCopyButton" name="copy"
+                                                                          onclick="copyText('vert-sig')"
+                                                                          title="Copy signature" type="button"
+                                                                          value="Copy Signature 1"
+                                                                          style="background-color:#ffd632;border:none;color:#000;display:inline-block;height:60px;margin:0 auto;min-width:200px;padding:20px"/>
+                                                                  </div>
+                                                                  <p>&#160;</p><!-- Horizontal Signature Block -->
+                                                                  <div class="grid-x cell small-12 horizontalSig"
+                                                                      id="signature"
+                                                                      onclick="copyText('hori-sig')"
+                                                                      title="Click to copy signature"
+                                                                      style="border:dashed 2px;display:grid;justify-content:left;padding:25px">
+                                                                      <!-- For some reason this child div has to be here. Otherwise a newline gets added to table when pasting into Outlook -->
+                                                                      <div id="signatureChild">
+                                                                          <table cellpadding="0" cellspacing="0"
+                                                                              height="auto" id="hori-sig"
+                                                                              class="hori-sig"
+                                                                              style="background:#fff;border-collapse:collapse;border-spacing:0;font-weight:400!important;text-align:left">
+                                                                              <tbody>
+                                                                                  <tr>
+                                                                                      <td width="122"
+                                                                                          style="background-color:#fff;padding:0!important;vertical-align:middle!important;width:max-content">
+                                                                                          <img height="34"
+                                                                                              width="110"
+                                                                                              id="horicwulogo"
+                                                                                              class="horicwulogo"
+                                                                                              src="https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png"
+                                                                                              style="padding:0!important;width:110px!important"/>
+                                                                                      </td>
+                                                                                      <td width="30" height="135"
+                                                                                          style="padding:13px!important;width:max-content">
+                                                                                      </td>
+                                                                                      <td width="1" height="135"
+                                                                                          background="#000000"
+                                                                                          style="background:#000;padding:1px;padding-left:0;width:max-content">
+                                                                                      </td>
+                                                                                      <td width="30" height="135"
+                                                                                          style="padding:15px!important;width:max-content">
+                                                                                      </td><!-- Column -->
+                                                                                      <td class="horiSigBlock"
+                                                                                          id="horiSigBlock"
+                                                                                          valign="middle"
+                                                                                          width="1000"
+                                                                                          style="vertical-align:middle!important;width:max-content">
+                                                                                          <span
+                                                                                              id="firstName">Firstname
+                                                                                              Lastname</span><br /><span
+                                                                                              id="pronouns">Pronouns</span><br /><span
+                                                                                              id="position">Title</span><br /><span
+                                                                                              id="department">Department</span><br /><span
+                                                                                              id="address1">Address</span><br /><span
+                                                                                              id="address2">City,
+                                                                                              State,
+                                                                                              ZIP</span><br /><span
+                                                                                              id="location">Location</span><br /><span
+                                                                                              id="phone">Phone</span><br /><span
+                                                                                              id="phone2">Phone
+                                                                                              2</span><br /><span
+                                                                                              id="email">Email</span><br /><span
+                                                                                              id="website"><a
+                                                                                                  href="https://www.cwu.edu"
+                                                                                                  rel="noopener"
+                                                                                                  target="_blank"
+                                                                                                  style="color:#000!important;font-size:16px!important;text-decoration:underline!important">cwu.edu</a></span>
+                                                                                      </td>
+                                                                                  </tr>
+                                                                              </tbody>
+                                                                          </table>
+                                                                      </div>
+                                                                  </div>
+                                                                  <p><br /><!-- Horizontal Copy Signature button -->
+                                                                  </p>
+                                                                  <div class="grid-x small-12"
+                                                                      id="horiCopyButtonContainer"><input
+                                                                          id="horiCopyButton" name="copy"
+                                                                          onclick="copyText('hori-sig')"
+                                                                          title="Copy signature" type="button"
+                                                                          value="Copy Signature 2"
+                                                                          style="background-color:#ffd632;border:none;color:#000;display:inline-block;height:60px;margin:0 auto;min-width:200px;padding:20px"/>
+                                                                  </div>
+                                                                  <p></p>
+                                                              </th>
+                                                              <th class="expander"></th>
+                                                          </tr>
+                                                      </tbody>
+                                                  </table>
+                                              </th>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                                  <table class="spacer"
+                                      style="border-collapse:collapse;border-spacing:0;font-weight:400!important">
+                                      <tbody>
+                                          <tr>
+                                              <td height="16" style="font-size:16px;line-height:16px"></td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </center>
+          </td>
+      </tr>
+  </table>
+
+      <!-- Instructions callout -->
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <div class="callout">
+            <h3>Instructions for Microsoft Outlook</h3>
+            <ol>
+                <li>Click <i>Copy Signature</i> to copy the signature to your clipboard.</li>
+                <li>Open Outlook, then create a new email.</li>
+                <li>Navigate to <i>Signature &gt; Signatures...</i> on PC or <i>Signature &gt; Edit Signatures...</i> on
+                    Mac.
+                </li>
+                <li>Click <i>New</i> on PC or <i>+</i> on Mac.</li>
+                <li>Name the signature. If you're on a PC, click <i>OK</i>.</li>
+                <li>In the empty box, right-click and paste your signature.</li>
+                <li>Make sure your new signature is selected as the default for <i>New messages</i> and
+                    <i>Replies/forwards</i>.
+                </li>
+                <li>Click <i>Save</i> to apply changes. Close the blank email and create a test email to confirm your
+                    new
+                    signature has been applied and that everything is correct.
+                </li>
+            </ol>
+            <h3>Instructions for Office 365</h3>
+            <ol>
+                <li>Click <i>Copy Signature</i> to copy the signature to your clipboard.</li>
+                <li>Navigate to <a href="https://outlook.office365.com/mail/inbox" rel="noopener"
+                        target="_blank">Outlook
+                        for Office 365</a>. Sign in if you haven't already.
+                </li>
+                <li>Click the <i>Settings</i> icon in the top right.</li>
+                <li>In the <i>Search Outlook settings</i> box type "signature" and select <i>Email signature</i>.</li>
+                <li>In the empty box, right-click and paste your signature.</li>
+                <li>Enable both of the <i>Automatically include my signature...</i> boxes.</li>
+                <li>Click <i>Save</i> to apply changes. Close the settings window and create a test email to confirm
+                    your
+                    new signature has been applied and that everything is correct.
+                </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/what-input/dist/what-input.js"></script>
+    <script src="node_modules/foundation-sites/dist/js/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
