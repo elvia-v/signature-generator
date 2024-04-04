@@ -409,15 +409,17 @@
 
       <div class="grid-x grid-padding-x">
         <div class="large-12 medium-6 cell">
+
           <hr />
+          <div class="small-4 large-12 cell">
+            <h3>test</h3>
+        </div>
           <form id="signatureForm" name="signatureForm">
-            <div class="grid-x grid-padding-x">
+
               <div class="large-12 cell">
                 <label class="sig-label" for="firstName">Full Name</label>
                 <input class="formInput form__field" id="firstName" name="firstName" onkeyup="preview()" type="text" placeholder="Wellington Wildcat"/>
-              </div>
             </div>
-            <div class="grid-x grid-padding-x">
               <div class="large-4 medium-4 cell">
                 <label class="sig-label" for="pronouns">Pronouns</label>
                 <input class="formInput form__field" id="pronouns" name="pronouns" onkeyup="preview()" type="text" placeholder="He/Him/His" />
@@ -454,27 +456,36 @@
                 <label class="sig-label" for="email">Email</label>
                 <input class="formInput form__field" id="email" name="email" onkeyup="preview()" type="text" placeholder="wellington.wildcat@cwu.edu" />
               </div>
-              <div class="large-12 cell">
+              <div class="large-4 cell">
                 <label class="sig-label" for="website">Department Website</label>
                 <input class="formInput form__field" id="website" name="website" onkeyup="preview()" type="text" placeholder="For cwu.edu/brand, type 'brand'" />
               </div>
-              <div class="large-6 medium-6 cell align-justify">
-                <h3>test</h3>
-            </div>
+              <div class="large-4 cell">
+                <label class="sig-label" for="website">Department Website</label>
+                <input class="formInput form__field" id="website" name="website" onkeyup="preview()" type="text" placeholder="For cwu.edu/brand, type 'brand'" />
+              </div>
           </form>
+            <div class="small-12 cell">
+                        <!-- Select a Style block-->
+            <h3 class="logo-label" id="selectStyleLabel">Select a Style</h3>
+                <!-- Medallion -->
+                <img class="cwuMedallion" onclick="replaceMedallion(), horiReplaceMedallion()"
+                    src="cwu-logo-web-display.png"/>
+                <!-- Athletics -->
+                <span class="athleticslogo">
+                    <img class="cwuWildcat" onclick="replaceAthe(), horiReplaceAthe()"
+                        src="cwu-athletics-rgb.png" /><br />
+                    <small>For Athletics use only</small>
+                </span>
 
           </div>
         </div>
       </div>
 
-<div class="row">
-  <div class="small-6 columns"><span>6 columns</span></div>
-  <div class="small-6 columns"><span>6 columns</span></div>
-</div>
-<div class="row">
-  <div class="medium-6 large-4 columns"><span>12/6/4 columns</span></div>
-  <div class="medium-6 large-8 columns"><span>12/6/8 columns</span></div>
-</div>
+
+    <div class="large-6 medium-6 cell align-justify">
+      <h3>test</h3>
+
 
       
       <!-- Signature table -->
