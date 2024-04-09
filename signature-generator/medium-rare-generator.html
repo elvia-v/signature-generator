@@ -59,12 +59,12 @@
           }
 
           /* Phone1*/
-          if (tel.value.length > 0) {
+          if (phone1.value.length > 0) {
               createSpan("phone", "", phone1.value);
           }
 
           /* Phone2*/
-          if (tel2.value.length > 0) {
+          if (phone2.value.length > 0) {
               createSpan("phone2", "", phone2.value);
           }
 
@@ -179,13 +179,13 @@
           }
 
           /* Phone1*/
-          if (tel.value.length > 0) {
-              createSpan2("phone", "", tel.value);
+          if (phone1.value.length > 0) {
+              createSpan2("phone", "", phone1.value);
           }
 
           /* Phone2*/
-          if (tel2.value.length > 0) {
-              createSpan2("phone2", "", tel2.value);
+          if (phone2.value.length > 0) {
+              createSpan2("phone2", "", phone2.value);
           }
 
           /* Email*/
@@ -335,7 +335,7 @@
 
       /*phone number formatting*/
       function formatPhone(e) {
-          var phone = document.querySelector("#tel");
+          var phone = document.querySelector("#phone1");
           var val = "",
               a = 0,
               f = 0,
@@ -354,7 +354,7 @@
 
       /*phone number formatting*/
       function formatPhone2(e) {
-          var phone = document.querySelector("#tel2");
+          var phone = document.querySelector("#phone2");
           var val = "",
               a = 0,
               f = 0,
@@ -374,7 +374,6 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/app.css" />
     <!-- CWU CSS -->
     <link rel="stylesheet" href="modaal.min.css">
     <link rel="stylesheet" href="main.css">
@@ -616,26 +615,15 @@
                                                                                           valign="middle"
                                                                                           width="1000"
                                                                                           style="vertical-align:middle!important;width:max-content">
-                                                                                          <span
-                                                                                              id="firstName">Firstname
-                                                                                              Lastname</span><br /><span
-                                                                                              id="pronouns">Pronouns</span><br /><span
-                                                                                              id="position">Title</span><br /><span
-                                                                                              id="department">Department</span><br /><span
-                                                                                              id="address1">Address</span><br /><span
-                                                                                              id="address2">City,
-                                                                                              State,
-                                                                                              ZIP</span><br /><span
-                                                                                              id="location">Location</span><br /><span
-                                                                                              id="phone">Phone</span><br /><span
-                                                                                              id="phone2">Phone
-                                                                                              2</span><br /><span
-                                                                                              id="email">Email</span><br /><span
-                                                                                              id="website"><a
-                                                                                                  href="https://www.cwu.edu"
-                                                                                                  rel="noopener"
-                                                                                                  target="_blank"
-                                                                                                  style="color:#000!important;font-size:16px!important;text-decoration:underline!important">cwu.edu</a></span>
+                                                                                          <span id="firstName">Firstname Lastname</span><br />
+                                                                                          <span id="pronouns">Pronouns</span><br /><span id="position">Title</span><br />
+                                                                                          <span id="department">Department</span><br />
+                                                                                          <span id="address1">Address</span><br /><span id="address2">City, State, ZIP</span><br />
+                                                                                          <span id="location">Location</span><br />
+                                                                                          <span id="phone">Phone</span><br />
+                                                                                          <span id="phone2">Phone 2</span><br />
+                                                                                          <span id="email">Email</span><br />
+                                                                                          <span id="website"><a href="https://www.cwu.edu" rel="noopener" target="_blank" style="color:#000!important;font-size:16px!important;text-decoration:underline!important">cwu.edu</a></span>
                                                                                       </td>
                                                                                   </tr>
                                                                               </tbody>
@@ -644,13 +632,8 @@
                                                                   </div>
                                                                   <p><br /><!-- Horizontal Copy Signature button -->
                                                                   </p>
-                                                                  <div class="grid-x small-12"
-                                                                      id="horiCopyButtonContainer"><input
-                                                                          id="horiCopyButton" name="copy"
-                                                                          onclick="copyText('hori-sig')"
-                                                                          title="Copy signature" type="button"
-                                                                          value="Copy Signature 2"
-                                                                          style="background-color:#ffd632;border:none;color:#000;display:inline-block;height:60px;margin:0 auto;min-width:200px;padding:20px"/>
+                                                                  <div class="grid-x small-12" id="horiCopyButtonContainer">
+                                                                    <input id="horiCopyButton" name="copy" onclick="copyText('hori-sig')" title="Copy signature" type="button" value="Copy Signature 2" style="background-color:#ffd632;border:none;color:#000;display:inline-block;height:60px;margin:0 auto;min-width:200px;padding:20px"/>
                                                                   </div>
                                                                   <p></p>
                                                               </th>
