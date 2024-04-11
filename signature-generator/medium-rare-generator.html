@@ -378,34 +378,6 @@
     <link rel="stylesheet" href="modaal.min.css">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="cwu-custom.css">
-    <style>
-        .flex-container {
-        display: inline-flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-        align-items: stretch;
-        align-content: center;
-        }
-
-        .flex-items:nth-child(1) {
-        display: block;
-        flex-grow: 0;
-        flex-shrink: 1;
-        flex-basis: auto;
-        align-self: auto;
-        order: 0;
-        }
-
-        .flex-items:nth-child(2) {
-        display: block;
-        flex-grow: 1;
-        flex-shrink: 1;
-        flex-basis: auto;
-        align-self: center;
-        order: 0;
-        }
-    </style>
   </head>
   <body>
 
@@ -468,25 +440,27 @@
                     <label class="sig-label" for="email">Email</label>
                     <input class="formInput form__field" id="email" name="email" onkeyup="preview()" type="text" placeholder="wellington.wildcat@cwu.edu" />
                   </div>
-                  <div class="large-6 cell" style="border: dotted">
+                  <div class="large-6 cell">
                     <label class="sig-label" for="website">Department Website</label>
                     <input class="formInput form__field" id="website" name="website" onkeyup="preview()" type="text" placeholder="For cwu.edu/brand, type 'brand'" />
                   </div>
                 </div>
               </form>
-                <div class="small-4 cell" style="border: solid green">
-                    <div class="grid-x cell medium-12" style="border: dotted">
-                    <!-- Select a Style block-->
+              <div class="large-5 cell">
+                <!-- Select a Style block-->
+                <div class="grid-x cell medium-6">
                     <h3 class="logo-label" id="selectStyleLabel">Select a Style</h3>
-                    <!-- Medallion -->
-                    <img class="cwuMedallion" onclick="replaceMedallion(), horiReplaceMedallion()"
-                        src="cwu-logo-web-display.png"/>
-                    <!-- Athletics -->
-                    <span class="athleticslogo">
-                        <img class="cwuWildcat" onclick="replaceAthe(), horiReplaceAthe()"
-                            src="cwu-athletics-rgb.png" /><br />
-                        <small>For Athletics use only</small>
-                    </span>
+                    <div class="grid-x cell logos">
+                        <!-- Medallion -->
+                        <img class="cwuMedallion" onclick="replaceMedallion(), horiReplaceMedallion()"
+                            src="cwu-logo-web-display.png" style="max-width: 80%; border:dotted green;"/>
+                        <!-- Athletics -->
+                        <span class="athleticslogo">
+                            <img class="cwuWildcat" onclick="replaceAthe(), horiReplaceAthe()"
+                                src="cwu-athletics-rgb.png" style="border:dotted green;"/><br />
+                            <small>For Athletics use only</small>
+                        </span>
+                    </div>
                 </div>
             
     <!-- Signature table -->
@@ -509,6 +483,7 @@
                                                       style="border-collapse:collapse;border-spacing:0;font-weight:400!important">
                                                       <tbody>
                                                           <tr>
+                                                            <h3>Vertical</h3>
                                                               <th><!-- Signature Box --><!-- Vertical Signature Box -->
                                                                   <div class="grid-x cell small-12 verticalSig"
                                                                       id="signature"
@@ -572,10 +547,12 @@
                                                                           id="vertCopyButton" name="copy"
                                                                           onclick="copyText('vert-sig')"
                                                                           title="Copy signature" type="button"
-                                                                          value="Copy Signature 1"
+                                                                          value="Copy Vertical Signature"
                                                                           style="background-color:#ffd632;border:none;color:#000;display:inline-block;height:60px;margin:0 auto;min-width:200px;padding:20px"/>
                                                                   </div>
                                                                   <p>&#160;</p><!-- Horizontal Signature Block -->
+                                                                  <h3>Horizontal</h3>
+
                                                                   <div class="grid-x cell small-12 horizontalSig"
                                                                       id="signature"
                                                                       onclick="copyText('hori-sig')"
@@ -632,7 +609,7 @@
                                                                   <p><br /><!-- Horizontal Copy Signature button -->
                                                                   </p>
                                                                   <div class="grid-x small-12" id="horiCopyButtonContainer">
-                                                                    <input id="horiCopyButton" name="copy" onclick="copyText('hori-sig')" title="Copy signature" type="button" value="Copy Signature 2" style="background-color:#ffd632;border:none;color:#000;display:inline-block;height:60px;margin:0 auto;min-width:200px;padding:20px"/>
+                                                                    <input id="horiCopyButton" name="copy" onclick="copyText('hori-sig')" title="Copy signature" type="button" value="Copy Horizontal Signature" style="background-color:#ffd632;border:none;color:#000;display:inline-block;height:60px;margin:0 auto;min-width:200px;padding:20px"/>
                                                                   </div>
                                                                   <p></p>
                                                               </th>
