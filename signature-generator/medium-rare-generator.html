@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
+    
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/what-input/dist/what-input.js"></script>
     <script src="js/app.js"></script>
@@ -8,8 +9,8 @@
     <!-- JS -->
     <script>
       function createSpan(id, css, val) {
-          var sp = document.createElement("span");
-          var br = document.createElement("br");
+          sp = document.createElement("span");
+          br = document.createElement("br");
           sp.setAttribute("id", id);
           sp.setAttribute("style", css);
           sp.innerHTML = val;
@@ -37,7 +38,7 @@
           }
 
           /* Position*/
-          if (pos.value.length > 0) {
+          if (position.value.length > 0) {
               createSpan("position", "", position.value);
           }
 
@@ -83,12 +84,12 @@
           /* Department Website*/
           if (dptsite.value.length > 0) {
               /*RegEx's to account for CWU sites not hosted on cwu.edu*/
-              var library = new RegExp(/(lib.cwu.edu)/gim);
-              var wildcatshop = new RegExp(/(wildcatshop.net)/gim);
-              var wildcatsports = new RegExp(/(wildcatsports.com)/gim);
+              library = new RegExp(/(lib.cwu.edu)/gim);
+              wildcatshop = new RegExp(/(wildcatshop.net)/gim);
+              wildcatsports = new RegExp(/(wildcatsports.com)/gim);
 
               /*Replaces 5 different variations of cwu.edu and a single preceding slash */
-              var cwuedu = new RegExp(
+              cwuedu = new RegExp(
                   /(^\/)?(((http(s)?:)?(\/\/)?(www\.)?)?cwu\.edu(\/)?)?/gim
               );
 
@@ -129,8 +130,8 @@
 
       /*Helper function to dynamically create spans.*/
       function createSpan2(id, css, val) {
-          var sp = document.createElement("span");
-          var br = document.createElement("br");
+          sp = document.createElement("span");
+          br = document.createElement("br");
           sp.setAttribute("id", id);
           sp.setAttribute("style", css);
           sp.innerHTML = val;
@@ -157,8 +158,8 @@
           }
 
           /* Position*/
-          if (pos.value.length > 0) {
-              createSpan2("position", "", pos.value);
+          if (position.value.length > 0) {
+              createSpan2("position", "", position.value);
           }
 
           /* Department*/
@@ -183,7 +184,7 @@
 
           /* Phone1*/
           if (phone1.value.length > 0) {
-              createSpan2("phone", "", phone1.value);
+              createSpan2("phone1", "", phone1.value);
           }
 
           /* Phone2*/
@@ -203,12 +204,12 @@
           /* Department Website*/
           if (dptsite.value.length > 0) {
               /*RegEx's to account for CWU sites not hosted on cwu.edu*/
-              var library = new RegExp(/(lib.cwu.edu)/gim);
-              var wildcatshop = new RegExp(/(wildcatshop.net)/gim);
-              var wildcatsports = new RegExp(/(wildcatsports.com)/gim);
+              library = new RegExp(/(lib.cwu.edu)/gim);
+              wildcatshop = new RegExp(/(wildcatshop.net)/gim);
+              wildcatsports = new RegExp(/(wildcatsports.com)/gim);
 
               /*Replaces 5 different variations of cwu.edu and a single preceding slash */
-              var cwuedu = new RegExp(
+              cwuedu = new RegExp(
                   /(^\/)?(((http(s)?:)?(\/\/)?(www\.)?)?cwu\.edu(\/)?)?/gim
               );
 
@@ -245,7 +246,7 @@
 
       /*Replaces the signature logo with CWU Medallion*/
       function replaceMedallion() {
-          var medallion = document.getElementById("cwulogo");
+          medallion = document.getElementById("cwulogo");
           medallion.setAttribute(
               "src",
               "https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png"
@@ -256,7 +257,7 @@
 
       /*Replaces the signature logo with Wildcat Medallion*/
       function replaceAthe() {
-          var wildcat = document.getElementById("cwulogo");
+          wildcat = document.getElementById("cwulogo");
           wildcat.setAttribute(
               "src",
               "https://www.cwu.edu/about/media-resources/brand/_images/cwu-athletics-rgb.png"
@@ -267,7 +268,7 @@
 
       /*Replaces the signature logo with CWU Medallion*/
       function horiReplaceMedallion() {
-          var medallion = document.getElementById("horicwulogo");
+          medallion = document.getElementById("horicwulogo");
           medallion.setAttribute(
               "src",
               "https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png"
@@ -278,7 +279,7 @@
 
       /*Replaces the signature logo with Wildcat Medallion*/
       function horiReplaceAthe() {
-          var wildcat = document.getElementById("horicwulogo");
+          wildcat = document.getElementById("horicwulogo");
           wildcat.setAttribute(
               "src",
               "https://www.cwu.edu/about/media-resources/brand/_images/cwu-athletics-rgb.png"
@@ -293,7 +294,7 @@
           if (!validate());
           else if (document.selection) {
               /*Modern copy function*/
-              var range = document.body.createTextRange();
+              range = document.body.createTextRange();
               console.log(range);
               range.moveToElementText(document.getElementById(containerid));
               range.select();
@@ -302,7 +303,7 @@
               alert("Signature copied successfully!");
               /* Copy function for legacy browsers*/
           } else if (window.getSelection) {
-              var range = document.createRange();
+              range = document.createRange();
               range.selectNode(document.getElementById(containerid));
               window.getSelection().removeAllRanges();
               window.getSelection().addRange(range);
@@ -313,7 +314,7 @@
 
       /*Form validation. Returns true if all required fields are filled out and email is valid.*/
       function validate() {
-          var a = true;
+        a = true;
 
           /*Requires something to be entered into 'Name'*/
           if (document.signatureForm.firstName.value == "") {
@@ -338,8 +339,8 @@
 
       /*phone number formatting*/
       function formatPhone(e) {
-          var phone = document.querySelector("#phone1");
-          var val = "",
+          phone = document.querySelector("#phone1");
+          val = "",
               a = 0,
               f = 0,
               l = 0;
@@ -357,8 +358,8 @@
 
       /*phone number formatting*/
       function formatPhone2(e) {
-          var phone = document.querySelector("#phone2");
-          var val = "",
+          phone = document.querySelector("#phone2");
+          val = "",
               a = 0,
               f = 0,
               l = 0;
@@ -399,8 +400,8 @@
       </div>
       <hr />
 
-    <div class="grid-x grid-padding-x">
-            <form class="grid-x cell small-12" id="signatureForm" name="signatureForm">
+    <div class="grid-x grid-padding-y">
+            <form class="grid-x cell large-12" id="signatureForm" name="signatureForm">
                 <div class="grid-x grid-padding-x">
                     <div class="large-6 cell">
                   <div class="large-6 cell">
@@ -452,15 +453,15 @@
               <div class="large-5 cell">
                 <!-- Select a Style block-->
                 <div class="grid-x cell medium-6">
-                    <h3 class="logo-label" id="selectStyleLabel">Select a Style</h3>
+                    <h3 class="logo-label" id="selectStyleLabel">Select a Logo Style</h3>
                     <div class="grid-x cell logos">
                         <!-- Medallion -->
                         <img class="cwuMedallion" onclick="replaceMedallion(), horiReplaceMedallion()"
-                            src="cwu-logo-web-display.png" style="max-width: 100%; max-height: 100%; object-fit: cover; border:dotted green;"/>
+                            src="cwu-logo-web-display.png" style="max-width: 220px; padding-right:25px; padding-left:25px; object-fit: contain;"/>
                         <!-- Athletics -->
                         <span class="athleticslogo">
                             <img class="cwuWildcat" onclick="replaceAthe(), horiReplaceAthe()"
-                                src="cwu-athletics-rgb.png" style="border:dotted green;"/><br />
+                                src="cwu-athletics-rgb.png" style="max-width: 220px; padding-right:25px; padding-left:25px; object-fit: contain;"/><br />
                             <small>For Athletics use only</small>
                         </span>
                     </div>
@@ -486,7 +487,6 @@
                                                       style="border-collapse:collapse;border-spacing:0;font-weight:400!important">
                                                       <tbody>
                                                           <tr>
-                                                            <h3>Vertical</h3>
                                                               <th><!-- Signature Box --><!-- Vertical Signature Box -->
                                                                   <div class="grid-x cell small-12 verticalSig"
                                                                       id="signature"
@@ -530,8 +530,7 @@
                                                                                               id="address2">City, State, ZIP</span><br /><span
                                                                                               id="location">Location</span><br /><span
                                                                                               id="phone">Phone</span><br /><span
-                                                                                              id="phone2">Phone
-                                                                                              2</span><br /><span
+                                                                                              id="phone2">Phone 2</span><br /><span
                                                                                               id="email">Email</span><br /><span
                                                                                               id="website"><a
                                                                                                   href="https://www.cwu.edu"
@@ -554,7 +553,6 @@
                                                                           style="background-color:#ffd632;border:none;color:#000;display:inline-block;height:60px;margin:0 auto;min-width:200px;padding:20px"/>
                                                                   </div>
                                                                   <p>&#160;</p><!-- Horizontal Signature Block -->
-                                                                  <h3>Horizontal</h3>
 
                                                                   <div class="grid-x cell small-12 horizontalSig"
                                                                       id="signature"
