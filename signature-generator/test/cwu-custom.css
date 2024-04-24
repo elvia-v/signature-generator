@@ -1,0 +1,161 @@
+/* Blog -> News override styles */
+/* Marty wants to review the vanillia styles for the blog aggregator
+ .card.card--blog {
+	 width:100%;
+	 display:grid;
+	 grid-template-columns: 1fr 2fr;
+}
+ .card__figure--blog{
+	 width:unset;
+	 height:100%;
+	 border:1rem solid #f6f6f6;
+}
+ .card__figure--blog:hover{
+	 border:0rem solid #f6f6f6;
+}
+*/
+/*Intro Component*/
+ .intro.component {
+	 margin-bottom:7.5rem;
+}
+/* MyMajors */
+ .mymajors {
+	 padding: .5rem 0;
+}
+/* Signature Generator: CWU > /about/media-resources/brand/resources/email-signature-generator.php */
+ #myForm {
+	 align-items: baseline;
+}
+ .star {
+	 color: #cc1540;
+}
+ .formInput {
+	 color: #000 !important;
+}
+ .formInput::placeholder {
+	 color: #ccc !important;
+}
+ .formInput:focus {
+	 outline-style: none!important;
+	 border-color: #ffd632!important;
+	/*box-shadow: 0 0 10px #cc1540;
+	 */
+}
+ .cwuWildcat:hover, .cwuMedallion:hover {
+	 cursor: pointer!important;
+	 box-shadow: 2px 2px 10px 1px black!important;
+	 border-radius: 5px!important;
+}
+ .callout label.sig-label {
+	 position: static!important;
+	 background-color: unset!important;
+	 transform: none!important;
+}
+/*.horiSigBlock {
+	 padding: 0px 0px 0px 30px !important;
+	 vertical-align: middle !important;
+}
+ */
+ .vertSigBlock a, .horiSigBlock a{
+	 font-size: 16px!important;
+	 text-decoration: underline!important;
+	 color: #000!important;
+}
+ #vertCopyButton, #horiCopyButton {
+	 display: inline-block;
+	 padding: 20px;
+	 background-color: #ffd632;
+	 color: black;
+	 border: none;
+	 min-width: 200px;
+	 margin: 0 auto;
+	 height: 60px;
+}
+ #vertCopyButton:hover, #horiCopyButton:hover {
+	 background-color: #ffe98f;
+	 cursor: pointer;
+}
+ #vertCopyButton, #horiCopyButtonContainer {
+	 align-items: center;
+}
+ #signature {
+	 padding: 10px 0 10px 0;
+	 border: dashed 2px;
+	 justify-content: center;
+	 text-align: left;
+}
+ #signature:hover {
+	 border-color: #cc1540!important;
+	 cursor: pointer;
+}
+ .instruction-panel {
+	 padding: 0px 16px;
+}
+/*.sig-outlook-panel {
+	 display: none;
+	 overflow: hidden;
+	 transition: max-height 0.2s ease-out;
+}
+ .sig-office-panel {
+	 display: none;
+	 overflow: hidden;
+	 transition: max-height 0.2s ease-out;
+}
+ */
+/* Scales and centers logos for medium screens */
+ @media print, screen and (min-width: 64em) {
+	 .logos {
+		 margin: 2.5rem 0rem;
+		 height: auto;
+	}
+	 .logo-label {
+		 padding: 2.5rem 1.75rem 0rem;
+	}
+	 .cwuMedallion {
+		 height: 60px;
+		 margin: auto 30px auto 0px;
+	}
+}
+/* Scales and centers logos for small screens */
+ @media (max-width: 400px) {
+	 .logosWrapper {
+		 text-align: center;
+	}
+	 .logos {
+		 height: unset;
+		 margin: 0rem 0rem 2.5rem 1rem;
+	}
+	 .logo-label {
+		 margin: 2.5rem 0.75rem 0rem;
+	}
+	 .cwuMedallion {
+		 margin: auto;
+		 padding: 0px;
+		 width: 45%;
+		 height: 55px;
+	}
+	 .athleticslogo {
+		 display: inline-table;
+		 margin: 0rem 0rem 0rem 1.625rem;
+		 width: 45%;
+	}
+	 .cwuWildcat {
+		 width: unset;
+	}
+}
+/* Slate RFI Button */
+ .rfi-wrapper {
+	 margin: 120px auto;
+	 text-align: center;
+}
+ .suggest {
+	 z-index: 9999!important;
+}
+ .rfi-btn {
+	 margin-top: 16px;
+}
+ .form-content {
+	 padding-bottom: 20px;
+	 overflow-y: scroll;
+}
+ 

@@ -1,6 +1,9 @@
+
+// <![CDATA[
+/*Helper function to dynamically create spans.*/
 function createSpan(id, css, val) {
-    sp = document.createElement("span");
-    br = document.createElement("br");
+    var sp = document.createElement("span");
+    var br = document.createElement("br");
     sp.setAttribute("id", id);
     sp.setAttribute("style", css);
     sp.innerHTML = val;
@@ -18,68 +21,68 @@ function preview() {
     document.querySelector("#sigBlock").innerHTML = "";
 
     /* Name*/
-    if (firstName.value.length > 0) {
-        createSpan("firstName", "font-weight:bolder;", firstName.value);
+    if (nm.value.length > 0) {
+        createSpan("name", "font-weight:bolder;", nm.value);
     }
 
     /* Pronouns*/
-    if (pronouns.value.length > 0) {
-        createSpan("pronouns", "", pronouns.value);
+    if (pn.value.length > 0) {
+        createSpan("name", "", pn.value);
     }
 
     /* Position*/
-    if (position.value.length > 0) {
-        createSpan("position", "", position.value);
+    if (pos.value.length > 0) {
+        createSpan("position", "", pos.value);
     }
 
     /* Department*/
-    if (department.value.length > 0) {
-        createSpan("department", "", department.value);
+    if (dpt.value.length > 0) {
+        createSpan("department", "", dpt.value);
     }
 
     /* Address*/
-    if (address1.value.length > 0) {
-        createSpan("address1", "", address1.value);
+    if (add1.value.length > 0) {
+        createSpan("address1", "", add1.value);
     }
 
     /* City,State,Zip*/
-    if (address2.value.length > 0) {
-        createSpan("address2", "", address2.value);
+    if (add2.value.length > 0) {
+        createSpan("address2", "", add2.value);
     }
 
     /* Location*/
-    if (location.value.length > 0) {
-        createSpan("location", "", location.value);
+    if (loc.value.length > 0) {
+        createSpan("location", "", loc.value);
     }
 
     /* Phone1*/
-    if (phone1.value.length > 0) {
-        createSpan("phone1", "", phone1.value);
+    if (tel.value.length > 0) {
+        createSpan("phone", "", tel.value);
     }
 
     /* Phone2*/
-    if (phone2.value.length > 0) {
-        createSpan("phone2", "", phone2.value);
+    if (tel2.value.length > 0) {
+        createSpan("phone2", "", tel2.value);
     }
 
     /* Email*/
-    if (email.value.length > 0) {
+    if (ema.value.length > 0) {
         createSpan(
             "email",
             "font-size: .8rem;",
-            '<a href="mailto:' + email.value + '">' + email.value + "</a>"
+            '<a href="mailto:' + ema.value + '">' + ema.value + "</a>"
         );
     }
 
     /* Department Website*/
     if (dptsite.value.length > 0) {
         /*RegEx's to account for CWU sites not hosted on cwu.edu*/
-        library = new RegExp(/(lib.cwu.edu)/gim);
-        wildcatshop = new RegExp(/(wildcatshop.net)/gim);
-        wildcatsports = new RegExp(/(wildcatsports.com)/gim);
+        var library = new RegExp(/(lib.cwu.edu)/gim);
+        var wildcatshop = new RegExp(/(wildcatshop.net)/gim);
+        var wildcatsports = new RegExp(/(wildcatsports.com)/gim);
 
         /*Replaces 5 different variations of cwu.edu and a single preceding slash */
-        cwuedu = new RegExp(
+        var cwuedu = new RegExp(
             /(^\/)?(((http(s)?:)?(\/\/)?(www\.)?)?cwu\.edu(\/)?)?/gim
         );
 
@@ -120,8 +123,8 @@ function preview() {
 
 /*Helper function to dynamically create spans.*/
 function createSpan2(id, css, val) {
-    sp = document.createElement("span");
-    br = document.createElement("br");
+    var sp = document.createElement("span");
+    var br = document.createElement("br");
     sp.setAttribute("id", id);
     sp.setAttribute("style", css);
     sp.innerHTML = val;
@@ -138,68 +141,68 @@ function preview2() {
     document.querySelector("#horiSigBlock").innerHTML = "";
 
     /* Name*/
-    if (firstName.value.length > 0) {
-        createSpan2("firstName", "font-weight:bolder;", firstName.value);
+    if (nm.value.length > 0) {
+        createSpan2("name", "font-weight:bolder;", nm.value);
     }
 
     /* Pronouns*/
-    if (pronouns.value.length > 0) {
-        createSpan2("pronouns", "", pronouns.value);
+    if (pn.value.length > 0) {
+        createSpan2("name", "", pn.value);
     }
 
     /* Position*/
-    if (position.value.length > 0) {
-        createSpan2("position", "", position.value);
+    if (pos.value.length > 0) {
+        createSpan2("position", "", pos.value);
     }
 
     /* Department*/
-    if (department.value.length > 0) {
-        createSpan2("department", "", department.value);
+    if (dpt.value.length > 0) {
+        createSpan2("department", "", dpt.value);
     }
 
     /* Address*/
-    if (address1.value.length > 0) {
-        createSpan2("address1", "", address1.value);
+    if (add1.value.length > 0) {
+        createSpan2("address1", "", add1.value);
     }
 
     /* City,State,Zip*/
-    if (address2.value.length > 0) {
-        createSpan2("address2", "", address2.value);
+    if (add2.value.length > 0) {
+        createSpan2("address2", "", add2.value);
     }
 
     /* Location*/
-    if (location.value.length > 0) {
-        createSpan2("location", "", location.value);
+    if (loc.value.length > 0) {
+        createSpan2("location", "", loc.value);
     }
 
     /* Phone1*/
-    if (phone1.value.length > 0) {
-        createSpan2("phone1", "", phone1.value);
+    if (tel.value.length > 0) {
+        createSpan2("phone", "", tel.value);
     }
 
     /* Phone2*/
-    if (phone2.value.length > 0) {
-        createSpan2("phone2", "", phone2.value);
+    if (tel2.value.length > 0) {
+        createSpan2("phone2", "", tel2.value);
     }
 
     /* Email*/
-    if (email.value.length > 0) {
+    if (ema.value.length > 0) {
         createSpan2(
             "email",
             "font-size: .8rem;",
-            '<a href="mailto:' + email.value + '">' + email.value + "</a>"
+            '<a href="mailto:' + ema.value + '">' + ema.value + "</a>"
         );
     }
 
     /* Department Website*/
     if (dptsite.value.length > 0) {
         /*RegEx's to account for CWU sites not hosted on cwu.edu*/
-        library = new RegExp(/(lib.cwu.edu)/gim);
-        wildcatshop = new RegExp(/(wildcatshop.net)/gim);
-        wildcatsports = new RegExp(/(wildcatsports.com)/gim);
+        var library = new RegExp(/(lib.cwu.edu)/gim);
+        var wildcatshop = new RegExp(/(wildcatshop.net)/gim);
+        var wildcatsports = new RegExp(/(wildcatsports.com)/gim);
 
         /*Replaces 5 different variations of cwu.edu and a single preceding slash */
-        cwuedu = new RegExp(
+        var cwuedu = new RegExp(
             /(^\/)?(((http(s)?:)?(\/\/)?(www\.)?)?cwu\.edu(\/)?)?/gim
         );
 
@@ -236,7 +239,7 @@ function preview2() {
 
 /*Replaces the signature logo with CWU Medallion*/
 function replaceMedallion() {
-    medallion = document.getElementById("cwulogo");
+    var medallion = document.getElementById("cwulogo");
     medallion.setAttribute(
         "src",
         "https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png"
@@ -247,7 +250,7 @@ function replaceMedallion() {
 
 /*Replaces the signature logo with Wildcat Medallion*/
 function replaceAthe() {
-    wildcat = document.getElementById("cwulogo");
+    var wildcat = document.getElementById("cwulogo");
     wildcat.setAttribute(
         "src",
         "https://www.cwu.edu/about/media-resources/brand/_images/cwu-athletics-rgb.png"
@@ -258,7 +261,7 @@ function replaceAthe() {
 
 /*Replaces the signature logo with CWU Medallion*/
 function horiReplaceMedallion() {
-    medallion = document.getElementById("horicwulogo");
+    var medallion = document.getElementById("horicwulogo");
     medallion.setAttribute(
         "src",
         "https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png"
@@ -269,7 +272,7 @@ function horiReplaceMedallion() {
 
 /*Replaces the signature logo with Wildcat Medallion*/
 function horiReplaceAthe() {
-    wildcat = document.getElementById("horicwulogo");
+    var wildcat = document.getElementById("horicwulogo");
     wildcat.setAttribute(
         "src",
         "https://www.cwu.edu/about/media-resources/brand/_images/cwu-athletics-rgb.png"
@@ -284,7 +287,7 @@ function copyText(containerid) {
     if (!validate());
     else if (document.selection) {
         /*Modern copy function*/
-        range = document.body.createTextRange();
+        var range = document.body.createTextRange();
         console.log(range);
         range.moveToElementText(document.getElementById(containerid));
         range.select();
@@ -293,7 +296,7 @@ function copyText(containerid) {
         alert("Signature copied successfully!");
         /* Copy function for legacy browsers*/
     } else if (window.getSelection) {
-        range = document.createRange();
+        var range = document.createRange();
         range.selectNode(document.getElementById(containerid));
         window.getSelection().removeAllRanges();
         window.getSelection().addRange(range);
@@ -304,24 +307,24 @@ function copyText(containerid) {
 
 /*Form validation. Returns true if all required fields are filled out and email is valid.*/
 function validate() {
-  a = true;
+    var a = true;
 
     /*Requires something to be entered into 'Name'*/
-    if (document.signatureForm.firstName.value == "") {
-        alert("Please enter your name.");
-        document.signatureForm.firstName.focus();
+    if (document.myForm.nm.value == "") {
+        alert("Please provide your Name!");
+        document.myForm.nm.focus();
         a = false;
 
         /*Requires something to be entered into 'Email'*/
-    } else if (document.signatureForm.email.value == "") {
-        alert("Please enter your email.");
-        document.signatureForm.email.focus();
+    } else if (document.myForm.ema.value == "") {
+        alert("Please provide your Email!");
+        document.myForm.ema.focus();
         a = false;
 
         /*Email field is validated by default HTML5 regex.*/
-    } else if (!document.signatureForm.email.checkValidity()) {
-        alert("Please enter a valid email.");
-        document.signatureForm.email.focus();
+    } else if (!document.myForm.ema.checkValidity()) {
+        alert("Please enter a valid Email!");
+        document.myForm.ema.focus();
         a = false;
     }
     return a;
@@ -329,8 +332,8 @@ function validate() {
 
 /*phone number formatting*/
 function formatPhone(e) {
-    phone = document.querySelector("#phone1");
-    val = "",
+    var phone = document.querySelector("#tel");
+    var val = "",
         a = 0,
         f = 0,
         l = 0;
@@ -348,8 +351,8 @@ function formatPhone(e) {
 
 /*phone number formatting*/
 function formatPhone2(e) {
-    phone = document.querySelector("#phone2");
-    val = "",
+    var phone = document.querySelector("#tel2");
+    var val = "",
         a = 0,
         f = 0,
         l = 0;
