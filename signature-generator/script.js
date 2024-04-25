@@ -1,6 +1,46 @@
-const firstName = document.querySelector("#title")
+const firstName = document.querySelector("#firstName")
 console.log(firstName)
-firstName.addEventListener("keydown", () => console.log(firstName.value))
+firstName.addEventListener("keyup", () => console.log(firstName.value))
+
+const pronouns = document.querySelector("#pronouns")
+console.log(pronouns)
+pronouns.addEventListener("keyup", () => console.log(pronouns.value))
+
+const title = document.querySelector("#title")
+console.log(title)
+title.addEventListener("keyup", () => console.log(title.value))
+
+const department = document.querySelector("#department")
+console.log(department)
+department.addEventListener("keyup", () => console.log(department.value))
+
+const address1 = document.querySelector("#address1")
+console.log(address1)
+address1.addEventListener("keyup", () => console.log(address1.value))
+
+const address2 = document.querySelector("#address2")
+console.log(address2)
+address2.addEventListener("keyup", () => console.log(address2.value))
+
+const roomNumber = document.querySelector("#roomNumber")
+console.log(roomNumber)
+roomNumber.addEventListener("keyup", () => console.log(roomNumber.value))
+
+const phone1 = document.querySelector("#phone1")
+console.log(phone1)
+phone1.addEventListener("keyup", () => console.log(phone1.value))
+
+const phone2 = document.querySelector("#phone2")
+console.log(phone2)
+phone2.addEventListener("keyup", () => console.log(phone2.value))
+
+const email = document.querySelector("#email")
+console.log(email)
+email.addEventListener("keyup", () => console.log(email.value))
+
+const website = document.querySelector("#website")
+console.log(website)
+website.addEventListener("keyup", () => console.log(website.value))
 
 // function createSpan(id, css, val) {
 //     sp = document.createElement("span");
@@ -31,9 +71,9 @@ firstName.addEventListener("keydown", () => console.log(firstName.value))
 //         createSpan("pronouns", "", pronouns.value);
 //     }
 
-//     /* Position*/
-//     if (position.value.length > 0) {
-//         createSpan("position", "", position.value);
+//     /* Title*/
+//     if (title.value.length > 0) {
+//         createSpan("title", "", title.value);
 //     }
 
 //     /* Department*/
@@ -151,9 +191,9 @@ firstName.addEventListener("keydown", () => console.log(firstName.value))
 //         createSpan2("pronouns", "", pronouns.value);
 //     }
 
-//     /* Position*/
-//     if (position.value.length > 0) {
-//         createSpan2("position", "", position.value);
+//     /* Title */
+//     if (title.value.length > 0) {
+//         createSpan2("title", "", title.value);
 //     }
 
 //     /* Department*/
