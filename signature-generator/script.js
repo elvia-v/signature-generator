@@ -42,6 +42,17 @@ const website = document.querySelector("#website")
 console.log(website)
 website.addEventListener("keyup", () => console.log(website.value))
 
+
+inputs = document.querySelectorAll('.signatureForm');
+console.log(inputs)
+// uses inputs to add event listeners 
+for (i = inputs.length - 1; i >= 0; i--) {
+    var x = x;
+}
+console.log(inputs)
+
+
+
 // function createSpan(id, css, val) {
 //     sp = document.createElement("span");
 //     br = document.createElement("br");

@@ -1,0 +1,35 @@
+
+
+// takes all inputs from form and lists them in "input" as a list
+inputs = document.querySelectorAll('signatureForm');
+
+// uses inputs to add event listeners 
+for (i = inputs.length - 1; i >= 0; i--) {
+    inputs[i].addEventListener('keyup', updateSignature);
+}
+
+procedure createSpan
+    sp = document.createElement("span");
+    br = document.createElement("br");
+    sp.setAttribute("id", id);
+    sp.setAttribute("style", css);
+    sp.innerHTML = val;
+    document.querySelector("#horiSigBlock").appendChild(sp);
+    document.querySelector("#horiSigBlock").appendChild(br);
+    return sp;
+
+
+// Takes information from form and puts them into horizontal and vertical spans
+procedure updateSignature(x)
+    id = x.target.id;
+    value = x.target.value;
+    element = doc.querySelector('.' + id);
+
+
+
+
+
+procedure replaceLogos
+
+
+procedure validateForm
