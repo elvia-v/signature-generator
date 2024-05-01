@@ -147,9 +147,7 @@ firstName.addEventListener("keyup", () => console.log(firstName.value))
 //     }
 
 //     /* Pronouns*/
-//     if (pronouns.value.length > 0) {
-//         createSpan2("pronouns", "", pronouns.value);
-//     }
+//     if (pronouns.value.length > 0) {createSpan2("pronouns", "", pronouns.value);}
 
 //     /* Title */
 //     if (title.value.length > 0) {
