@@ -2,6 +2,93 @@ const firstName = document.querySelector("#firstName")
 console.log(firstName)
 firstName.addEventListener("keyup", () => console.log(firstName.value))
 
+
+copyHorizontal = document.getElementById("#horizontalButton")
+copyVertical = document.getElementById("#verticalButton")
+copyHorizontal.addEventListener("click", copyText)
+copyVertical.addEventListener("click", copyText)
+
+// setting all variables in the form into a list called inputs
+inputs = document.querySelectorAll('.form');
+
+// runs updateSignature/previewSignature for each form variable as entered in
+for (i = inputs.length - 1; i >= 0; i--) {
+    inputs[i].addEventListener('keyup', updateSignature|previewSignature);
+}
+
+
+// replaces the existing text in the span with user's form input
+function updateSignatureSpan(spanId, input){
+    // this resets everything in the signature block spans, horizontal and vertical
+    document.querySelector("#sigBlock","#horiSigBlock").textContent = ""
+    // use matching span id to insert new value via .textContent
+    document.getElementByID(spanId).textContent = input
+}
+
+
+// creates spans after their counterpart instead of replacing the text because not every field is required, largely the same as before
+function createSpan(id, css, value){
+    sp = document.createElement("span");
+    br = document.createElement("br");
+    sp.setAttribute("id", id);
+    sp.setAttribute("style", css);
+    sp.textContent = value;
+}
+
+// alternatively updating them individually, adding new spans
+function previewSignature(formOption){
+    if (formOption.value.length > 0)
+        // firstName is bolded
+        if (formOption = "firstName")
+            createSpan('firstName', "font-weight:bolder;", formOption.value);
+        // adds mailto prefix for email field
+        elif (formOption = email)
+            createSpan("email", "", '<a href="mailto:' + formOption.value + '">' + formOption.value + "</a>");
+        elif:
+            createSpan('"' + formOption + '"', "font-weight:bolder;", formOption.value);
+}
+
+
+// copies text within the selected div
+function copyText(id){
+    range = document.body.createTextRange();
+    range.moveToElementText(document.getElementById(id));
+    range.select();
+    document.execCommand("Copy");
+}
+
+
+// updates both vertical and horizontal signatures with default CWU medallion
+function replaceMedallionLogo(){
+    medallion = document.getElementById("vericalLogo");
+    medallion.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png");
+    medallion.setAttribute("width", "90");
+    medallion.setAttribute("height", "28");
+    medallion = document.getElementById("horizontalLogo");
+    medallion.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png");
+    medallion.setAttribute("width", "90");
+    medallion.setAttribute("height", "28");
+}
+
+// updates both vertical and horizontal signatures with wildcat sports logo
+function replaceWildcatLogo(){
+    wildcat = document.getElementById("verticalLogo");
+    wildcat.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-athletics-rgb.png");
+    wildcat.setAttribute("width", "90");
+    wildcat.setAttribute("height", "90");
+    wildcat = document.getElementById("horizontalLogo");
+    wildcat.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-athletics-rgb.png");
+    wildcat.setAttribute("width", "90");
+    wildcat.setAttribute("height", "90");
+}
+
+
+
+
+
+
+
+
 // function createSpan(id, css, val) {
 //     sp = document.createElement("span");
 //     br = document.createElement("br");
@@ -366,3 +453,4 @@ firstName.addEventListener("keyup", () => console.log(firstName.value))
 //     }
 //     phone.value = val;
 // }
+
