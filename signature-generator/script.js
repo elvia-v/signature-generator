@@ -1,26 +1,33 @@
-const firstName = document.querySelector("#firstName")
-console.log(firstName)
-firstName.addEventListener("keyup", () => console.log(firstName.value))
+const firstName = document.querySelector("#firstName");
+console.log(firstName);
+firstName.addEventListener("keyup", () => console.log(firstName.value));
+const pronouns = document.querySelector("#pronouns");
+pronouns.addEventListener("keyup", () => console.log(pronouns.value));
+
+document.getElementById("verticalButton").addEventListener("click",function(){
+    this.style.backgroundColor = "red";
+});
+
+document.getElementById("horizontalButton").addEventListener("click",function(){
+    this.style.backgroundColor = "red";
+});
 
 
-copyHorizontal = document.getElementById("#horizontalButton")
-copyVertical = document.getElementById("#verticalButton")
-copyHorizontal.addEventListener("click", copyText)
-copyVertical.addEventListener("click", copyText)
+
 
 // setting all variables in the form into a list called inputs
-inputs = document.querySelectorAll('.form');
+inputs = document.querySelectorAll('.formInput form__field');
 
-// runs updateSignature/previewSignature for each form variable as entered in
+// runs updateSignature for each form variable as entered in
 for (i = inputs.length - 1; i >= 0; i--) {
-    inputs[i].addEventListener('keyup', updateSignature|previewSignature);
+    inputs[i].addEventListener('keyup', previewSignature);
 }
 
 
 // replaces the existing text in the span with user's form input
 function updateSignatureSpan(spanId, input){
     // this resets everything in the signature block spans, horizontal and vertical
-    document.querySelector("#sigBlock","#horiSigBlock").textContent = ""
+    document.querySelector("#verticalBlock","#horizontalBlock").textContent = ""
     // use matching span id to insert new value via .textContent
     document.getElementByID(spanId).textContent = input
 }

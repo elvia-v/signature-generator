@@ -83,12 +83,11 @@
                     <h3 class="logo-label" id="selectStyleLabel">Select a Logo Style</h3>
                     <div class="grid-x cell logos">
                         <!-- Medallion -->
-                        <img class="cwuMedallion" onclick="replaceMedallion(), horiReplaceMedallion()"
-                            src="cwu-logo-web-display.png" style="max-width: 220px; padding-right:25px; padding-left:25px; object-fit: contain;"/>
+                        <img class="cwuMedallion" onclick="replaceMedallion(), horiReplaceMedallion()" src="cwu-logo-web-display.png" style="max-width: 220px; padding-right:25px; padding-left:25px; object-fit: contain;"/>
                         <!-- Athletics -->
                         <span class="athleticslogo">
-                            <img class="cwuWildcat" onclick="replaceAthe(), horiReplaceAthe()"
-                                src="cwu-athletics-rgb.png" style="max-width: 220px; padding-right:25px; padding-left:25px; object-fit: contain;"/><br />
+                            <img class="cwuWildcat" onclick="replaceAthe(), horiReplaceAthe()" src="cwu-athletics-rgb.png" style="max-width: 220px; padding-right:25px; padding-left:25px; object-fit: contain;"/>
+                            <br />
                             <small>For Athletics use only</small>
                         </span>
                     </div>
@@ -124,7 +123,7 @@
                                                                                       <td style="width:max-content"> &#160;</td>
                                                                                   </tr>
                                                                                   <tr><!-- Column -->
-                                                                                      <td id="sigBlock" class="vertSigBlock" valign="middle" style="width:max-content">
+                                                                                      <td id="verticalBlock" class="verticalBlock" valign="middle" style="width:max-content">
                                                                                         <span id="firstName">Firstname Lastname</span><br />
                                                                                         <span id="pronouns">Pronouns</span><br />
                                                                                         <span id="title">Title</span><br />
@@ -144,7 +143,7 @@
                                                                   </div>
                                                                   <p>&#160;</p>
                                                                   <div class="grid-x small-12" id="copyButtonContainer">
-                                                                    <input id="vertCopyButton" name="copy" onclick="copyText('vert-sig')" title="Copy signature" type="button" value="Copy Vertical Signature" style="background-color:#ffd632;border:none;color:#000;display:inline-block;height:60px;margin:0 auto;min-width:200px;padding:20px"/>
+                                                                    <input id="verticalButton" name="copy" type="button" value="Copy Vertical Signature" style="background-color:#ffd632;border:none;color:#000;display:inline-block;height:60px;margin:0 auto;min-width:200px;padding:20px"/>
                                                                   </div>
                                                                   <p>&#160;</p>
                                                                   <!-- Horizontal Signature Block -->
@@ -161,7 +160,7 @@
                                                                                       <td width="1" height="135" background="#000000" style="background:#000;padding:1px;padding-left:0;width:max-content"></td>
                                                                                       <td width="30" height="135" style="padding:15px!important;width:max-content">
                                                                                       </td><!-- Column -->
-                                                                                      <td class="horiSigBlock" id="horiSigBlock" valign="middle" width="1000" style="vertical-align:middle!important;width:max-content">
+                                                                                      <td class="horizontalBlock" id="horizontalBlock" valign="middle" width="1000" style="vertical-align:middle!important;width:max-content">
                                                                                           <span id="firstName">Firstname Lastname</span><br />
                                                                                           <span id="pronouns">Pronouns</span><br />
                                                                                           <span id="title">Title</span><br />
@@ -181,8 +180,8 @@
                                                                   </div>
                                                                   <p><br /><!-- Horizontal Copy Signature button -->
                                                                   </p>
-                                                                  <div class="grid-x small-12" id="horiCopyButtonContainer">
-                                                                    <input id="horiCopyButton" name="copy" onclick="copyText('hori-sig')" title="Copy signature" type="button" value="Copy Horizontal Signature" style="background-color:#ffd632;border:none;color:#000;display:inline-block;height:60px;margin:0 auto;min-width:200px;padding:20px"/>
+                                                                  <div class="grid-x small-12">
+                                                                    <input id="horizontalButton" type="button" value="Copy Horizontal Signature" style="background-color:#ffd632;border:none;color:#000;display:inline-block;height:60px;margin:0 auto;min-width:200px;padding:20px"/>
                                                                   </div>
                                                                   <p></p>
                                                               </th>
