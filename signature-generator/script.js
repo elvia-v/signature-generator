@@ -15,22 +15,27 @@ document.getElementById("horizontalButton").addEventListener("click",function(){
 
 
 
-// setting all variables in the form into a list called inputs
-inputs = document.querySelectorAll('.formInput form__field');
+// setting all variables in the form by class .formInput into a list called inputs
+inputs = document.querySelectorAll('.formInput');
+console.log(inputs);
 
-// runs updateSignature for each form variable as entered in
+// runs updateSignature for each form variable as entered
 for (i = inputs.length - 1; i >= 0; i--) {
-    inputs[i].addEventListener('keyup', previewSignature);
+    // add code to grab ID of the input
+    inputs[i].addEventListener('keyup', previewSignature(i));
+    console.log(inputs[i]);
 }
 
 
 // replaces the existing text in the span with user's form input
-function updateSignatureSpan(spanId, input){
-    // this resets everything in the signature block spans, horizontal and vertical
-    document.querySelector("#verticalBlock","#horizontalBlock").textContent = ""
-    // use matching span id to insert new value via .textContent
-    document.getElementByID(spanId).textContent = input
-}
+// function updateSignatureSpan(inputID){
+//     inputID = document.getElementsByTagName("inputID")
+//     console.log(inputID)
+//     // this resets everything in the signature block spans, horizontal and vertical
+//     document.querySelector("#verticalBlock","#horizontalBlock").textContent = ""
+//     // use matching span id to insert new value via .textContent
+//     document.getElementByID(inputID).textContent = input
+// }
 
 
 // creates spans after their counterpart instead of replacing the text because not every field is required, largely the same as before
@@ -43,16 +48,16 @@ function createSpan(id, css, value){
 }
 
 // alternatively updating them individually, adding new spans
-function previewSignature(formOption){
-    if (formOption.value.length > 0)
+function previewSignature(inputID){
+    if (inputID.value.length > 0)
         // firstName is bolded
-        if (formOption = "firstName")
-            createSpan('firstName', "font-weight:bolder;", formOption.value);
+        if (inputID = "firstName")
+            createSpan('firstName', "font-weight:bolder;", inputID.value);
         // adds mailto prefix for email field
-        elif (formOption = email)
-            createSpan("email", "", '<a href="mailto:' + formOption.value + '">' + formOption.value + "</a>");
+        elif (inputID = email)
+            createSpan("email", "", '<a href="mailto:' + inputID.value + '">' + inputID.value + "</a>");
         elif:
-            createSpan('"' + formOption + '"', "font-weight:bolder;", formOption.value);
+            createSpan('"' + inputID + '"', "font-weight:bolder;", inputID.value);
 }
 
 
@@ -88,9 +93,6 @@ function replaceWildcatLogo(){
     wildcat.setAttribute("width", "90");
     wildcat.setAttribute("height", "90");
 }
-
-
-
 
 
 
