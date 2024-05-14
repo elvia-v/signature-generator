@@ -1,30 +1,40 @@
 const firstName = document.querySelector("#firstName");
-console.log(firstName);
-firstName.addEventListener("keyup", () => console.log(firstName.value));
 const pronouns = document.querySelector("#pronouns");
-pronouns.addEventListener("keyup", () => console.log(pronouns.value));
+const title = document.querySelector("#title");
+const department = document.querySelector("#department");
+const address1 = document.querySelector("#address1");
+const address2 = document.querySelector("#address2");
+const roomNumber = document.querySelector("#roomNumber");
+const phone1 = document.querySelector("#phone1");
+const phone2 = document.querySelector("#phone2");
+const email = document.querySelector("#email");
+
+
+firstName.addEventListener("keyup", (e) => previewSignature(e.target));
+pronouns.addEventListener("keyup", (e) => previewSignature(e.target));
+document.getElementById("cwuMedallion").addEventListener("click", replaceMedallionLogo());
+document.getElementById("cwuWildcat").addEventListener("click", replaceWildcatLogo());
 
 document.getElementById("verticalButton").addEventListener("click",function(){
-    this.style.backgroundColor = "red";
+    this.style.backgroundColor = "blue";
 });
-
 document.getElementById("horizontalButton").addEventListener("click",function(){
-    this.style.backgroundColor = "red";
+    this.style.backgroundColor = "blue";
 });
 
 
 
 
-// setting all variables in the form by class .formInput into a list called inputs
-inputs = document.querySelectorAll('.formInput');
-console.log(inputs);
+// // setting all variables in the form by class .formInput into a list called inputs
+// inputs = document.querySelectorAll('.formInput');
+// console.log(inputs);
 
-// runs updateSignature for each form variable as entered
-for (i = inputs.length - 1; i >= 0; i--) {
-    // add code to grab ID of the input
-    inputs[i].addEventListener('keyup', previewSignature(i));
-    console.log(inputs[i]);
-}
+// // runs updateSignature for each form variable as entered
+// for (i = inputs.length - 1; i >= 0; i--) {
+//     // add code to grab ID of the input
+//     inputs[i].addEventListener('keyup', previewSignature(i));
+//     console.log(inputs[i]);
+// }
 
 
 // replaces the existing text in the span with user's form input
@@ -45,19 +55,19 @@ function createSpan(id, css, value){
     sp.setAttribute("id", id);
     sp.setAttribute("style", css);
     sp.textContent = value;
+    document.querySelector("#verticalBlock").appendChild(sp);
+    document.querySelector("#verticalBlock").appendChild(br);
+    return sp;
 }
 
-// alternatively updating them individually, adding new spans
-function previewSignature(inputID){
-    if (inputID.value.length > 0)
-        // firstName is bolded
-        if (inputID = "firstName")
-            createSpan('firstName', "font-weight:bolder;", inputID.value);
-        // adds mailto prefix for email field
-        elif (inputID = email)
-            createSpan("email", "", '<a href="mailto:' + inputID.value + '">' + inputID.value + "</a>");
-        elif:
-            createSpan('"' + inputID + '"', "font-weight:bolder;", inputID.value);
+// updating spans individually, adding new spans
+function previewSignature(elementId){
+    document.querySelector("#verticalBlock").textContent = "";
+    console.log(elementId.value);
+    if (elementId.value.length > 0) {
+        createSpan(elementId.id, "font-weight:bolder;", elementId.value);
+
+    }
 }
 
 
@@ -72,7 +82,7 @@ function copyText(id){
 
 // updates both vertical and horizontal signatures with default CWU medallion
 function replaceMedallionLogo(){
-    medallion = document.getElementById("vericalLogo");
+    medallion = document.getElementById("verticalLogo");
     medallion.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png");
     medallion.setAttribute("width", "90");
     medallion.setAttribute("height", "28");
@@ -462,4 +472,3 @@ function replaceWildcatLogo(){
 //     }
 //     phone.value = val;
 // }
-

@@ -83,10 +83,10 @@
                     <h3 class="logo-label" id="selectStyleLabel">Select a Logo Style</h3>
                     <div class="grid-x cell logos">
                         <!-- Medallion -->
-                        <img class="cwuMedallion" onclick="replaceMedallion(), horiReplaceMedallion()" src="cwu-logo-web-display.png" style="max-width: 220px; padding-right:25px; padding-left:25px; object-fit: contain;"/>
+                        <img id="cwuMedallion" src="cwu-logo-web-display.png" style="max-width: 220px; padding-right:25px; padding-left:25px; object-fit: contain;"/>
                         <!-- Athletics -->
                         <span class="athleticslogo">
-                            <img class="cwuWildcat" onclick="replaceAthe(), horiReplaceAthe()" src="cwu-athletics-rgb.png" style="max-width: 220px; padding-right:25px; padding-left:25px; object-fit: contain;"/>
+                            <img id="cwuWildcat" src="cwu-athletics-rgb.png" style="max-width: 220px; padding-right:25px; padding-left:25px; object-fit: contain;"/>
                             <br />
                             <small>For Athletics use only</small>
                         </span>
@@ -109,14 +109,14 @@
                                                       <tbody>
                                                           <tr>
                                                               <th><!-- Signature Box --><!-- Vertical Signature Box -->
-                                                                  <div class="grid-x cell small-12 verticalSig" id="signature" onclick="copyText('vert-sig')" title="Click to copy signature" style="border:dashed 2px;justify-content:left;padding:25px">
+                                                                  <div class="grid-x cell small-12 verticalSig" id="signature" title="Click to copy signature" style="border:dashed 2px;justify-content:left;padding:25px">
                                                                       <!-- For some reason this child div has to be here. Otherwise a newline gets added to table when pasting into Outlook -->
                                                                       <div id="signatureChild">
                                                                           <table cellpadding="0" cellspacing="0" id="vert-sig" class="vert-sig" style="background:#fff;border-collapse:collapse;border-spacing:0;font-weight:400!important;text-align:left">
                                                                               <tbody>
                                                                                   <tr>
                                                                                     <td style="width:max-content">
-                                                                                        <img height="34" width="110" id="cwulogo" class="cwulogo" src="https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png" style="width:110px!important"/>
+                                                                                        <img height="34" width="110" id="verticalLogo" class="verticalLogo" src="https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png" style="width:110px!important"/>
                                                                                     </td>
                                                                                   </tr>
                                                                                   <tr>
@@ -124,16 +124,16 @@
                                                                                   </tr>
                                                                                   <tr><!-- Column -->
                                                                                       <td id="verticalBlock" class="verticalBlock" valign="middle" style="width:max-content">
-                                                                                        <span id="firstName">Firstname Lastname</span><br />
-                                                                                        <span id="pronouns">Pronouns</span><br />
-                                                                                        <span id="title">Title</span><br />
-                                                                                        <span id="department">Department</span> <br />
-                                                                                        <span id="address1">Address</span><br />
-                                                                                        <span id="address2">City, State, ZIP</span><br />
-                                                                                        <span id="roomNumber">Room Number</span><br />
-                                                                                        <span id="phone">Phone</span><br />
-                                                                                        <span id="phone2">Phone 2</span><br />
-                                                                                        <span id="email">Email</span><br /><span id="website">
+                                                                                        <span id="firstNameV">Firstname Lastname</span><br />
+                                                                                        <span id="pronounsV">Pronouns</span><br />
+                                                                                        <span id="titleV">Title</span><br />
+                                                                                        <span id="departmentV">Department</span> <br />
+                                                                                        <span id="address1V">Address</span><br />
+                                                                                        <span id="address2V">City, State, ZIP</span><br />
+                                                                                        <span id="roomNumberV">Room Number</span><br />
+                                                                                        <span id="phoneV">Phone</span><br />
+                                                                                        <span id="phone2V">Phone 2</span><br />
+                                                                                        <span id="emailV">Email</span><br /><span id="website">
                                                                                         <a href="https://www.cwu.edu" rel="noopener" target="_blank" style="color:#000!important;font-size:16px!important;text-decoration:underline!important">cwu.edu</a></span>
                                                                                       </td>
                                                                                   </tr>
@@ -143,35 +143,35 @@
                                                                   </div>
                                                                   <p>&#160;</p>
                                                                   <div class="grid-x small-12" id="copyButtonContainer">
-                                                                    <input id="verticalButton" name="copy" type="button" value="Copy Vertical Signature" style="background-color:#ffd632;border:none;color:#000;display:inline-block;height:60px;margin:0 auto;min-width:200px;padding:20px"/>
+                                                                    <input id="verticalButton" name="verticalButton" type="button" value="Copy Vertical Signature" style="background-color:#ffd632;border:none;color:#000;display:inline-block;height:60px;margin:0 auto;min-width:200px;padding:20px"/>
                                                                   </div>
                                                                   <p>&#160;</p>
                                                                   <!-- Horizontal Signature Block -->
-                                                                  <div class="grid-x cell small-12 horizontalSig" id="signature" onclick="copyText('hori-sig')" title="Click to copy signature" style="border:dashed 2px;display:grid;justify-content:left;padding:25px">
+                                                                  <div class="grid-x cell small-12 horizontalSig" id="signature" title="Click to copy signature" style="border:dashed 2px;display:grid;justify-content:left;padding:25px">
                                                                       <!-- For some reason this child div has to be here. Otherwise a newline gets added to table when pasting into Outlook -->
                                                                       <div id="signatureChild">
                                                                           <table cellpadding="0" cellspacing="0" height="auto" id="hori-sig" class="hori-sig" style="background:#fff;border-collapse:collapse;border-spacing:0;font-weight:400!important;text-align:left">
                                                                               <tbody>
                                                                                   <tr>
                                                                                       <td width="122" style="background-color:#fff;padding:0!important;vertical-align:middle!important;width:max-content">
-                                                                                          <img height="34" width="110" id="horicwulogo" class="horicwulogo" src="https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png" style="padding:0!important;width:110px!important"/>
+                                                                                          <img height="34" width="110" id="horizontalLogo" class="horizontalLogo" src="https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png" style="padding:0!important;width:110px!important"/>
                                                                                         </td>
                                                                                       <td width="30" height="135" style="padding:13px!important;width:max-content"></td>
                                                                                       <td width="1" height="135" background="#000000" style="background:#000;padding:1px;padding-left:0;width:max-content"></td>
                                                                                       <td width="30" height="135" style="padding:15px!important;width:max-content">
                                                                                       </td><!-- Column -->
                                                                                       <td class="horizontalBlock" id="horizontalBlock" valign="middle" width="1000" style="vertical-align:middle!important;width:max-content">
-                                                                                          <span id="firstName">Firstname Lastname</span><br />
-                                                                                          <span id="pronouns">Pronouns</span><br />
-                                                                                          <span id="title">Title</span><br />
-                                                                                          <span id="department">Department</span><br />
-                                                                                          <span id="address1">Address</span><br />
-                                                                                          <span id="address2">City, State, ZIP</span><br />
-                                                                                          <span id="roomNumber">Room Number</span><br />
-                                                                                          <span id="phone1">Phone</span><br />
-                                                                                          <span id="phone2">Phone 2</span><br />
-                                                                                          <span id="email">Email</span><br />
-                                                                                          <span id="website"><a href="https://www.cwu.edu" rel="noopener" target="_blank" style="color:#000!important;font-size:16px!important;text-decoration:underline!important">cwu.edu</a></span>
+                                                                                          <span id="firstNameH">Firstname Lastname</span><br />
+                                                                                          <span id="pronounsH">Pronouns</span><br />
+                                                                                          <span id="titleH">Title</span><br />
+                                                                                          <span id="departmentH">Department</span><br />
+                                                                                          <span id="address1H">Address</span><br />
+                                                                                          <span id="address2H">City, State, ZIP</span><br />
+                                                                                          <span id="roomNumberH">Room Number</span><br />
+                                                                                          <span id="phone1H">Phone</span><br />
+                                                                                          <span id="phone2H">Phone 2</span><br />
+                                                                                          <span id="emailH">Email</span><br />
+                                                                                          <span id="websiteH"><a href="https://www.cwu.edu" rel="noopener" target="_blank" style="color:#000!important;font-size:16px!important;text-decoration:underline!important">cwu.edu</a></span>
                                                                                       </td>
                                                                                   </tr>
                                                                               </tbody>
