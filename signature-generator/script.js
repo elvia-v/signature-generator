@@ -1,107 +1,95 @@
-const firstName = document.querySelector("#firstName");
-const pronouns = document.querySelector("#pronouns");
-const title = document.querySelector("#title");
-const department = document.querySelector("#department");
-const address1 = document.querySelector("#address1");
-const address2 = document.querySelector("#address2");
-const roomNumber = document.querySelector("#roomNumber");
-const phone1 = document.querySelector("#phone1");
-const phone2 = document.querySelector("#phone2");
-const email = document.querySelector("#email");
+const firstName = document.querySelector("#firstName")
+const pronouns = document.querySelector("#pronouns")
+const title = document.querySelector("#title")
+const department = document.querySelector("#department")
+const address1 = document.querySelector("#address1")
+const address2 = document.querySelector("#address2")
+const roomNumber = document.querySelector("#roomNumber")
+const phone1 = document.querySelector("#phone1")
+const phone2 = document.querySelector("#phone2")
+const email = document.querySelector("#email")
+const leftLogo = document.querySelector("#cwuMedallion")
+const rightLogo = document.querySelector("#cwuWildcat")
+let accessedForm = false;
+
+firstName.addEventListener("keyup", (e) => previewSignature(e.target))
+pronouns.addEventListener("keyup", (e) => previewSignature(e.target))
+leftLogo.addEventListener("click", () => replaceMedallionLogo())
+rightLogo.addEventListener("click", () => replaceWildcatLogo())
 
 
-firstName.addEventListener("keyup", (e) => previewSignature(e.target));
-pronouns.addEventListener("keyup", (e) => previewSignature(e.target));
-document.getElementById("cwuMedallion").addEventListener("click", replaceMedallionLogo());
-document.getElementById("cwuWildcat").addEventListener("click", replaceWildcatLogo());
+document.getElementById("cwuMedallion").addEventListener("click", replaceMedallionLogo())
+document.getElementById("cwuWildcat").addEventListener("click", replaceWildcatLogo())
 
 document.getElementById("verticalButton").addEventListener("click",function(){
-    this.style.backgroundColor = "blue";
+    this.style.backgroundColor = "blue"
 });
 document.getElementById("horizontalButton").addEventListener("click",function(){
-    this.style.backgroundColor = "blue";
+    this.style.backgroundColor = "blue"
 });
 
 
 
 
-// // setting all variables in the form by class .formInput into a list called inputs
-// inputs = document.querySelectorAll('.formInput');
-// console.log(inputs);
-
-// // runs updateSignature for each form variable as entered
-// for (i = inputs.length - 1; i >= 0; i--) {
-//     // add code to grab ID of the input
-//     inputs[i].addEventListener('keyup', previewSignature(i));
-//     console.log(inputs[i]);
-// }
-
-
-// replaces the existing text in the span with user's form input
-// function updateSignatureSpan(inputID){
-//     inputID = document.getElementsByTagName("inputID")
-//     console.log(inputID)
-//     // this resets everything in the signature block spans, horizontal and vertical
-//     document.querySelector("#verticalBlock","#horizontalBlock").textContent = ""
-//     // use matching span id to insert new value via .textContent
-//     document.getElementByID(inputID).textContent = input
-// }
-
-
-// creates spans after their counterpart instead of replacing the text because not every field is required, largely the same as before
 function createSpan(id, css, value){
-    sp = document.createElement("span");
-    br = document.createElement("br");
-    sp.setAttribute("id", id);
-    sp.setAttribute("style", css);
-    sp.textContent = value;
-    document.querySelector("#verticalBlock").appendChild(sp);
-    document.querySelector("#verticalBlock").appendChild(br);
-    return sp;
+    sp = document.createElement("span")
+    br = document.createElement("br")
+    sp.setAttribute("id", id)
+    sp.setAttribute("style", css)
+    sp.textContent = value
+    document.querySelector("#verticalBlock").appendChild(sp)
+    document.querySelector("#verticalBlock").appendChild(br)
+    return sp
 }
 
-// updating spans individually, adding new spans
+// wipes starting content in span and adds new text from form
 function previewSignature(elementId){
-    document.querySelector("#verticalBlock").textContent = "";
-    console.log(elementId.value);
-    if (elementId.value.length > 0) {
-        createSpan(elementId.id, "font-weight:bolder;", elementId.value);
-
+    if (accessedForm == false){
+        document.querySelector("#verticalBlock").textContent = ""
+        accessedForm = true
+    }
+    if (accessedForm == true){
+        console.log(elementId.value)
+        if (elementId.value.length > 0) {
+            createSpan(elementId.id, "font-weight:bolder;", elementId.value)
+            accessedForm = true
+        }
     }
 }
 
 
+
 // copies text within the selected div
 function copyText(id){
-    range = document.body.createTextRange();
-    range.moveToElementText(document.getElementById(id));
-    range.select();
-    document.execCommand("Copy");
+    range = document.body.createTextRange()
+    range.moveToElementText(document.getElementById(id))
+    range.select()
+    document.execCommand("Copy")
 }
 
 
 // updates both vertical and horizontal signatures with default CWU medallion
 function replaceMedallionLogo(){
-    medallion = document.getElementById("verticalLogo");
-    medallion.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png");
-    medallion.setAttribute("width", "90");
-    medallion.setAttribute("height", "28");
-    medallion = document.getElementById("horizontalLogo");
-    medallion.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png");
-    medallion.setAttribute("width", "90");
-    medallion.setAttribute("height", "28");
+    medallion = document.getElementById("verticalLogo")
+    medallion.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png")
+    medallion.setAttribute("width", "90")
+    medallion.setAttribute("height", "28")
+    medallion = document.getElementById("horizontalLogo")
+    medallion.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png")
+    medallion.setAttribute("width", "90")
+    medallion.setAttribute("height", "28")
 }
 
 // updates both vertical and horizontal signatures with wildcat sports logo
 function replaceWildcatLogo(){
-    wildcat = document.getElementById("verticalLogo");
-    wildcat.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-athletics-rgb.png");
-    wildcat.setAttribute("width", "90");
-    wildcat.setAttribute("height", "90");
-    wildcat = document.getElementById("horizontalLogo");
-    wildcat.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-athletics-rgb.png");
-    wildcat.setAttribute("width", "90");
-    wildcat.setAttribute("height", "90");
+    wildcat = document.getElementById("verticalLogo")
+    wildcat.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-athletics-rgb.png")
+    wildcat.setAttribute("width", "90")
+    wildcat.setAttribute("height", "90")
+    wildcat = document.getElementById("horizontalLogo")
+    wildcat.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-athletics-rgb.png")
+    wildcat.setAttribute("width", "90")
+    wildcat.setAttribute("height", "90")
 }
 
 
