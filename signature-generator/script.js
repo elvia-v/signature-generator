@@ -10,10 +10,22 @@ const phone2 = document.querySelector("#phone2")
 const email = document.querySelector("#email")
 const leftLogo = document.querySelector("#cwuMedallion")
 const rightLogo = document.querySelector("#cwuWildcat")
+const verticalCopy = document.querySelector("#verticalButton")
 let accessedForm = false;
 
 firstName.addEventListener("keyup", (e) => previewSignature(e.target))
 pronouns.addEventListener("keyup", (e) => previewSignature(e.target))
+title.addEventListener("keyup", (e) => previewSignature(e.target))
+department.addEventListener("keyup", (e) => previewSignature(e.target))
+address1.addEventListener("keyup", (e) => previewSignature(e.target))
+address2.addEventListener("keyup", (e) => previewSignature(e.target))
+roomNumber.addEventListener("keyup", (e) => previewSignature(e.target))
+phone1.addEventListener("keyup", (e) => previewSignature(e.target))
+phone2.addEventListener("keyup", (e) => previewSignature(e.target))
+email.addEventListener("keyup", (e) => previewSignature(e.target))
+
+verticalCopy.addEventListener("click", () => selectText())
+
 leftLogo.addEventListener("click", () => replaceMedallionLogo())
 rightLogo.addEventListener("click", () => replaceWildcatLogo())
 
@@ -21,52 +33,111 @@ rightLogo.addEventListener("click", () => replaceWildcatLogo())
 document.getElementById("cwuMedallion").addEventListener("click", replaceMedallionLogo())
 document.getElementById("cwuWildcat").addEventListener("click", replaceWildcatLogo())
 
-document.getElementById("verticalButton").addEventListener("click",function(){
-    this.style.backgroundColor = "blue"
-});
-document.getElementById("horizontalButton").addEventListener("click",function(){
-    this.style.backgroundColor = "blue"
-});
 
 
 
 
-function createSpan(id, css, value){
+function createSpan(id, css, value, block){
     sp = document.createElement("span")
     br = document.createElement("br")
     sp.setAttribute("id", id)
     sp.setAttribute("style", css)
     sp.textContent = value
-    document.querySelector("#verticalBlock").appendChild(sp)
-    document.querySelector("#verticalBlock").appendChild(br)
+    document.querySelector(block).appendChild(sp)
+    document.querySelector(block).appendChild(br)
     return sp
 }
 
 // wipes starting content in span and adds new text from form
+// function previewSignature(elementId){
+//     if (accessedForm == false){
+//         document.querySelector("#verticalBlock").textContent = ""
+//         accessedForm = true
+//}
+//     if (firstName.value.length > 0) {
+//         createSpan("firstName", "font-weight:bolder;", firstName.value);
+//     }
+
+
 function previewSignature(elementId){
-    if (accessedForm == false){
-        document.querySelector("#verticalBlock").textContent = ""
-        accessedForm = true
+    // clears contents within signature blocks each time accessed to input new values
+    block = "#verticalBlock"
+    document.querySelector("#verticalBlock").textContent = ""
+    if (firstName.value.length > 0) {
+        createSpan("firstName", "font-weight:bolder;", firstName.value, block);
     }
-    if (accessedForm == true){
-        console.log(elementId.value)
-        if (elementId.value.length > 0) {
-            createSpan(elementId.id, "font-weight:bolder;", elementId.value)
-            accessedForm = true
-        }
+    if (pronouns.value.length > 0) {
+        createSpan("pronouns", "", pronouns.value, block);
     }
+    if (title.value.length > 0) {
+        createSpan("title", "", title.value, block);
+    }
+    if (department.value.length > 0) {
+        createSpan("department", "", department.value, block);
+    }
+    if (address1.value.length > 0) {
+        createSpan("address1", "", address1.value, block);
+    }
+    if (address2.value.length > 0) {
+        createSpan("address2", "", address2.value, block);
+    }
+    if (roomNumber.value.length > 0) {
+        createSpan("roomNumber", "", roomNumber.value, block);
+    }
+    if (phone1.value.length > 0) {
+        createSpan("phone1", "", phone1.value, block);
+    }
+    if (phone2.value.length > 0) {
+        createSpan("phone2", "", phone2.value, block);
+    }
+    if (email.value.length > 0) {
+        createSpan("email", "", email.value, block);
+    }
+
+    // repeating the above for horizontal sections
+    block = "#horizontalBlock"
+    document.querySelector("#horizontalBlock").textContent = ""
+    if (firstName.value.length > 0) {
+        createSpan("firstName", "font-weight:bolder;", firstName.value, block);
+    }
+    if (pronouns.value.length > 0) {
+        createSpan("pronouns", "", pronouns.value, block);
+    }
+    if (title.value.length > 0) {
+        createSpan("title", "", title.value, block);
+    }
+    if (department.value.length > 0) {
+        createSpan("department", "", department.value, block);
+    }
+    if (address1.value.length > 0) {
+        createSpan("address1", "", address1.value, block);
+    }
+    if (address2.value.length > 0) {
+        createSpan("address2", "", address2.value, block);
+    }
+    if (roomNumber.value.length > 0) {
+        createSpan("roomNumber", "", roomNumber.value, block);
+    }
+    if (phone1.value.length > 0) {
+        createSpan("phone1", "", phone1.value, block);
+    }
+    if (phone2.value.length > 0) {
+        createSpan("phone2", "", phone2.value, block);
+    }
+    if (email.value.length > 0) {
+        createSpan("email", "", email.value, block);
+    }
+
 }
 
 
 
 // copies text within the selected div
-function copyText(id){
-    range = document.body.createTextRange()
-    range.moveToElementText(document.getElementById(id))
-    range.select()
-    document.execCommand("Copy")
-}
-
+function selectText() {
+    const input = document.getElementById("hori-sig");
+    input.focus();
+    input.setSelectionRange(2, 5);
+  }
 
 // updates both vertical and horizontal signatures with default CWU medallion
 function replaceMedallionLogo(){
