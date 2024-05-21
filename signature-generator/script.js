@@ -135,8 +135,12 @@ function previewSignature(elementId){
 // copies text within the selected div
 function selectText() {
     const input = document.getElementById("hori-sig");
-    input.focus();
-    input.setSelectionRange(2, 5);
+    range = document.createRange();
+    range.selectNode(document.getElementById("hori-sig"));
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    document.execCommand("Copy");
+    alert("Signature copied successfully!");
   }
 
 // updates both vertical and horizontal signatures with default CWU medallion
