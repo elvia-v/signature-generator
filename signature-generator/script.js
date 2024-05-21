@@ -11,7 +11,7 @@ const email = document.querySelector("#email")
 const leftLogo = document.querySelector("#cwuMedallion")
 const rightLogo = document.querySelector("#cwuWildcat")
 const verticalCopy = document.querySelector("#verticalButton")
-let accessedForm = false;
+const horizontalCopy = document.querySelector("#horizontalButton")
 
 firstName.addEventListener("keyup", (e) => previewSignature(e.target))
 pronouns.addEventListener("keyup", (e) => previewSignature(e.target))
@@ -24,7 +24,9 @@ phone1.addEventListener("keyup", (e) => previewSignature(e.target))
 phone2.addEventListener("keyup", (e) => previewSignature(e.target))
 email.addEventListener("keyup", (e) => previewSignature(e.target))
 
-verticalCopy.addEventListener("click", () => selectText())
+
+verticalCopy.addEventListener("click", () => selectText("vert-sig"))
+horizontalCopy.addEventListener("click", () => selectText("hori-sig"))
 
 leftLogo.addEventListener("click", () => replaceMedallionLogo())
 rightLogo.addEventListener("click", () => replaceWildcatLogo())
@@ -32,8 +34,6 @@ rightLogo.addEventListener("click", () => replaceWildcatLogo())
 
 document.getElementById("cwuMedallion").addEventListener("click", replaceMedallionLogo())
 document.getElementById("cwuWildcat").addEventListener("click", replaceWildcatLogo())
-
-
 
 
 
@@ -133,10 +133,9 @@ function previewSignature(elementId){
 
 
 // copies text within the selected div
-function selectText() {
-    const input = document.getElementById("hori-sig");
+function selectText(block) {
     range = document.createRange();
-    range.selectNode(document.getElementById("hori-sig"));
+    range.selectNode(document.getElementById(block));
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
     document.execCommand("Copy");
