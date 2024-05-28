@@ -48,98 +48,46 @@ function createSpan(id, css, value, block){
     return sp
 }
 
-// wipes starting content in span and adds new text from form
-// function previewSignature(elementId){
-//     if (accessedForm == false){
-//         document.querySelector("#verticalBlock").textContent = ""
-//         accessedForm = true
-//}
-//     if (firstName.value.length > 0) {
-//         createSpan("firstName", "font-weight:bolder;", firstName.value);
-//     }
 
 
 function previewSignature(elementId){
     // clears contents within signature blocks each time accessed to input new values
     block = "#verticalBlock"
     document.querySelector("#verticalBlock").textContent = ""
-    if (firstName.value.length > 0) {
-        createSpan("firstName", "font-weight:bolder;", firstName.value, block);
-    }
-    if (pronouns.value.length > 0) {
-        createSpan("pronouns", "", pronouns.value, block);
-    }
-    if (title.value.length > 0) {
-        createSpan("title", "", title.value, block);
-    }
-    if (department.value.length > 0) {
-        createSpan("department", "", department.value, block);
-    }
-    if (address1.value.length > 0) {
-        createSpan("address1", "", address1.value, block);
-    }
-    if (address2.value.length > 0) {
-        createSpan("address2", "", address2.value, block);
-    }
-    if (roomNumber.value.length > 0) {
-        createSpan("roomNumber", "", roomNumber.value, block);
-    }
-    if (phone1.value.length > 0) {
-        createSpan("phone1", "", phone1.value, block);
-    }
-    if (phone2.value.length > 0) {
-        createSpan("phone2", "", phone2.value, block);
-    }
-    if (email.value.length > 0) {
-        createSpan("email", "", email.value, block);
-    }
-
+    if (firstName.value.length > 0) createSpan("firstName", "font-weight:bolder;", firstName.value, block)
+    if (pronouns.value.length > 0) createSpan("pronouns", "", pronouns.value, block)
+    if (title.value.length > 0) createSpan("title", "", title.value, block)
+    if (department.value.length > 0) createSpan("department", "", department.value, block)
+    if (address1.value.length > 0) createSpan("address1", "", address1.value, block)
+    if (address2.value.length > 0) createSpan("address2", "", address2.value, block)
+    if (roomNumber.value.length > 0) createSpan("roomNumber", "", roomNumber.value, block)
+    if (phone1.value.length > 0) createSpan("phone1", "", phone1.value, block)
+    if (phone2.value.length > 0) createSpan("phone2", "", phone2.value, block)
+    if (email.value.length > 0) createSpan("email", "", email.value, block)
     // repeating the above for horizontal sections
     block = "#horizontalBlock"
     document.querySelector("#horizontalBlock").textContent = ""
-    if (firstName.value.length > 0) {
-        createSpan("firstName", "font-weight:bolder;", firstName.value, block);
-    }
-    if (pronouns.value.length > 0) {
-        createSpan("pronouns", "", pronouns.value, block);
-    }
-    if (title.value.length > 0) {
-        createSpan("title", "", title.value, block);
-    }
-    if (department.value.length > 0) {
-        createSpan("department", "", department.value, block);
-    }
-    if (address1.value.length > 0) {
-        createSpan("address1", "", address1.value, block);
-    }
-    if (address2.value.length > 0) {
-        createSpan("address2", "", address2.value, block);
-    }
-    if (roomNumber.value.length > 0) {
-        createSpan("roomNumber", "", roomNumber.value, block);
-    }
-    if (phone1.value.length > 0) {
-        createSpan("phone1", "", phone1.value, block);
-    }
-    if (phone2.value.length > 0) {
-        createSpan("phone2", "", phone2.value, block);
-    }
-    if (email.value.length > 0) {
-        createSpan("email", "", email.value, block);
-    }
-
+    if (firstName.value.length > 0) createSpan("firstName", "font-weight:bolder;", firstName.value, block)
+    if (pronouns.value.length > 0) createSpan("pronouns", "", pronouns.value, block)
+    if (title.value.length > 0) createSpan("title", "", title.value, block)
+    if (department.value.length > 0) createSpan("department", "", department.value, block)
+    if (address1.value.length > 0) createSpan("address1", "", address1.value, block)
+    if (address2.value.length > 0) createSpan("address2", "", address2.value, block)
+    if (roomNumber.value.length > 0) createSpan("roomNumber", "", roomNumber.value, block)
+    if (phone1.value.length > 0) createSpan("phone1", "", phone1.value, block)
+    if (phone2.value.length > 0) createSpan("phone2", "", phone2.value, block)
+    if (email.value.length > 0) createSpan("email", "", email.value, block)
 }
 
 
 
 // copies text within the selected div
 function selectText(block) {
-    range = document.createRange();
-    range.selectNode(document.getElementById(block));
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
-    document.execCommand("Copy");
-    alert("Signature copied successfully!");
+    range = document.createRange()
+    range.selectNode(document.getElementById(block))
+    window.getSelection().removeAllRanges()
+    window.getSelection().addRange(range)
+    document.execCommand("Copy")
   }
 
 // updates both vertical and horizontal signatures with default CWU medallion
