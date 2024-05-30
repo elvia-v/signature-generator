@@ -24,13 +24,11 @@ phone1.addEventListener("keyup", (e) => previewSignature(e.target))
 phone2.addEventListener("keyup", (e) => previewSignature(e.target))
 email.addEventListener("keyup", (e) => previewSignature(e.target))
 
-
-verticalCopy.addEventListener("click", () => selectText("vert-sig"))
-horizontalCopy.addEventListener("click", () => selectText("hori-sig"))
+//verticalCopy.addEventListener("click", () => selectText("vert-sig"))
+//horizontalCopy.addEventListener("click", () => selectText("hori-sig"))
 
 leftLogo.addEventListener("click", () => replaceMedallionLogo())
 rightLogo.addEventListener("click", () => replaceWildcatLogo())
-
 
 document.getElementById("cwuMedallion").addEventListener("click", replaceMedallionLogo())
 document.getElementById("cwuWildcat").addEventListener("click", replaceWildcatLogo())
@@ -83,14 +81,15 @@ function previewSignature(elementId){
 
 // copies text within the selected div
 function selectText(block) {
-    if (!validateForm());
-    else if (document.selection) {
+    isValid = validateForm()
+    if (isValid===false){}
+    else if (isValid===true){
         range = document.createRange()
         range.selectNode(document.getElementById(block))
         window.getSelection().removeAllRanges()
         window.getSelection().addRange(range)
         document.execCommand("Copy")
-  }
+    }
 }
 
 // updates both vertical and horizontal signatures with default CWU medallion
@@ -117,25 +116,24 @@ function replaceWildcatLogo(){
     wildcat.setAttribute("height", "90")
 }
 
-// returns true if name, pronouns, and email are entered in, and if email is a valid email
+// returns true if name, pronouns, and email are entered in
 function validateForm() {
     validated = true;
-  
-      if (document.signatureForm.firstName.value == "") {
-          alert("Please enter your name.")
-          document.signatureForm.firstName.focus()
-          validated = false
-  
-      } else if (document.signatureForm.email.value == "") {
-          alert("Please enter your email.")
-          document.signatureForm.email.focus()
-          validated = false
-  
-          /*Email field is validated by default HTML5 regex.*/
-      } else if (!document.signatureForm.email.checkValidity()) {
-          alert("Please enter a valid email.")
-          document.signatureForm.email.focus()
-          validated = false
-      }
-      return validated
+
+    if (document.signatureForm.firstName.value == "") {
+        alert("Please enter your name.")
+        document.signatureForm.firstName.focus()
+        validated = false
+
+    } else if (document.signatureForm.pronouns.value == "") {
+        alert("Please enter your pronouns.")
+        document.signatureForm.pronouns.focus()
+        validated = false    
+
+    } else if (document.signatureForm.email.value == "") {
+        alert("Please enter your email.")
+        document.signatureForm.email.focus()
+        validated = false
+    }
+    return validated
   }
