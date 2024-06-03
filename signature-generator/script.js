@@ -1,3 +1,4 @@
+// form variables
 const firstName = document.querySelector("#firstName")
 const pronouns = document.querySelector("#pronouns")
 const title = document.querySelector("#title")
@@ -8,6 +9,8 @@ const roomNumber = document.querySelector("#roomNumber")
 const phone1 = document.querySelector("#phone1")
 const phone2 = document.querySelector("#phone2")
 const email = document.querySelector("#email")
+const website = document.querySelector("#website")
+
 const leftLogo = document.querySelector("#cwuMedallion")
 const rightLogo = document.querySelector("#cwuWildcat")
 const verticalCopy = document.querySelector("#verticalButton")
@@ -23,6 +26,7 @@ roomNumber.addEventListener("keyup", (e) => previewSignature(e.target))
 phone1.addEventListener("keyup", (e) => previewSignature(e.target))
 phone2.addEventListener("keyup", (e) => previewSignature(e.target))
 email.addEventListener("keyup", (e) => previewSignature(e.target))
+website.addEventListener("keyup", (e) => previewSignature(e.target))
 
 //verticalCopy.addEventListener("click", () => selectText("vert-sig"))
 //horizontalCopy.addEventListener("click", () => selectText("hori-sig"))
@@ -32,8 +36,6 @@ rightLogo.addEventListener("click", () => replaceWildcatLogo())
 
 document.getElementById("cwuMedallion").addEventListener("click", replaceMedallionLogo())
 document.getElementById("cwuWildcat").addEventListener("click", replaceWildcatLogo())
-
-
 
 function createSpan(id, css, value, block){
     sp = document.createElement("span")
@@ -62,6 +64,8 @@ function previewSignature(elementId){
     if (phone1.value.length > 0) createSpan("phone1", "", phone1.value, block)
     if (phone2.value.length > 0) createSpan("phone2", "", phone2.value, block)
     if (email.value.length > 0) createSpan("email", "", email.value, block)
+    if (website.value.length > 0) createSpan("website", "", website.value, block)
+
     // repeating the above for horizontal sections
     block = "#horizontalBlock"
     document.querySelector("#horizontalBlock").textContent = ""
@@ -74,7 +78,8 @@ function previewSignature(elementId){
     if (roomNumber.value.length > 0) createSpan("roomNumber", "", roomNumber.value, block)
     if (phone1.value.length > 0) createSpan("phone1", "", phone1.value, block)
     if (phone2.value.length > 0) createSpan("phone2", "", phone2.value, block)
-    if (email.value.length > 0) createSpan("email", "", email.value, block)
+    if (email.value.length > 0) createSpan("email", "", '<a href="mailto:' + email.value + '">' + email.value + "</a>", block)
+    if (website.value.length > 0) createSpan("website", "", website.value, block)
 }
 
 
@@ -89,6 +94,8 @@ function selectText(block) {
         window.getSelection().removeAllRanges()
         window.getSelection().addRange(range)
         document.execCommand("Copy")
+        alert("Copied signature to clipboard.");
+        
     }
 }
 
