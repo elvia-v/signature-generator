@@ -1,6 +1,5 @@
 <!doctype html>
   <head>
-    <script src="script.js" defer></script>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,11 +39,11 @@
           <div class="grid-x grid-padding-x">
               <div class="large-6 cell">
                 <div class="large-6 cell medium-4 cell">
-                  <label class="sig-label" for="firstName">Full Name</label>
+                  <label class="sig-label" for="firstName" id="firstNameLabel">Full Name</label>
                   <input class="formInput form__field" id="firstName" name="firstName" type="text" placeholder="Wellington Wildcat"/>
                 </div>
                 <div class="large-6 medium-4 cell">
-                  <label class="sig-label" for="pronouns">Pronouns</label>
+                  <label class="sig-label" for="pronouns" id="pronounsLabel">Pronouns</label>
                   <input class="formInput form__field" id="pronouns" name="pronouns" type="text" placeholder="He/Him/His" />
                 </div>
                 <div class="large-6 medium-4 cell">
@@ -76,7 +75,7 @@
                   <input class="formInput form__field" id="phone2" name="phone2" type="text" placeholder="509-963-2222" />
                 </div>
                 <div class="large-6 medium-4 cell">
-                  <label class="sig-label" for="email">Email</label>
+                  <label class="sig-label" for="email" id="emailLabel">Email</label>
                   <input class="formInput form__field" id="email" name="email" type="text" placeholder="wellington.wildcat@cwu.edu" />
                 </div>
                 <div class="large-6 medium-4 cell">
@@ -94,10 +93,10 @@
               <div class="grid-x cell logos">
                 <div class="logoContainer">
                     <!-- Medallion -->
-                    <img id="cwuMedallion" src="cwu-logo-web-display.png" style="max-width: 25%; min-width: 120px; margin-right:1rem; object-fit:contain;"/>
+                    <img id="cwuMedallion" tabindex="0" src="cwu-logo-web-display.png" style="max-width: 25%; min-width: 120px; margin-right:1rem; object-fit:contain;"/>
                     <!-- Athletics -->
                     <span class="athleticslogo">
-                        <img id="cwuWildcat" src="cwu-athletics-rgb.png" style="max-width: 30%; min-width: 80px; margin-left:1rem; object-fit:contain;"/>
+                        <img id="cwuWildcat" tabindex="0" src="cwu-athletics-rgb.png" style="max-width: 30%; min-width: 80px; margin-left:1rem; object-fit:contain;"/>
                         <small>For Athletics use only</small>
                     </span>
                 </div>
@@ -249,5 +248,7 @@
         </div>
       </div>
     </div>
+    <script src="script.js" defer></script>
+
   </body>
 </html>

@@ -1,4 +1,4 @@
-// form variables
+// All form variables, logo selection buttons, and copy buttons
 const firstName = document.querySelector("#firstName")
 const pronouns = document.querySelector("#pronouns")
 const title = document.querySelector("#title")
@@ -10,12 +10,12 @@ const phone1 = document.querySelector("#phone1")
 const phone2 = document.querySelector("#phone2")
 const email = document.querySelector("#email")
 const website = document.querySelector("#website")
-
 const leftLogo = document.querySelector("#cwuMedallion")
 const rightLogo = document.querySelector("#cwuWildcat")
 const verticalCopy = document.querySelector("#verticalButton")
 const horizontalCopy = document.querySelector("#horizontalButton")
 
+// Form triggers
 firstName.addEventListener("keyup", (e) => previewSignature(e.target))
 pronouns.addEventListener("keyup", (e) => previewSignature(e.target))
 title.addEventListener("keyup", (e) => previewSignature(e.target))
@@ -28,15 +28,28 @@ phone2.addEventListener("keyup", (e) => previewSignature(e.target))
 email.addEventListener("keyup", (e) => previewSignature(e.target))
 website.addEventListener("keyup", (e) => previewSignature(e.target))
 
+// For some reason, the copy functions don't work unless they use onclick in markup
 //verticalCopy.addEventListener("click", () => selectText("vert-sig"))
 //horizontalCopy.addEventListener("click", () => selectText("hori-sig"))
 
-leftLogo.addEventListener("click", () => replaceMedallionLogo())
-rightLogo.addEventListener("click", () => replaceWildcatLogo())
+// Replaces logos via enter press for tab users
+leftLogo.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        replaceMedallionLogo(e.target)
+    }
+});
 
-document.getElementById("cwuMedallion").addEventListener("click", replaceMedallionLogo())
-document.getElementById("cwuWildcat").addEventListener("click", replaceWildcatLogo())
+rightLogo.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        replaceWildcatLogo(e.target)
+    }
+});
 
+// Replaces logos by click
+leftLogo.addEventListener("click", (e) => replaceMedallionLogo(e.target))
+rightLogo.addEventListener("click", (e) => replaceWildcatLogo(e.target))
+
+// Creates spans and assigns id, css styling, value, and appends to specified block
 function createSpan(id, css, value, block){
     sp = document.createElement("span")
     br = document.createElement("br")
@@ -48,12 +61,12 @@ function createSpan(id, css, value, block){
     return sp
 }
 
-
-
+// Wipes signature table and creates new spans using form values each time the form is inputted into
 function previewSignature(elementId){
-    // clears contents within signature blocks each time accessed to input new values
+    // Clears contents within signature block
     block = "#verticalBlock"
     document.querySelector("#verticalBlock").textContent = ""
+    // Only creates spans if value in form is > 0
     if (firstName.value.length > 0) createSpan("firstName", "font-weight:bolder;", firstName.value, block)
     if (pronouns.value.length > 0) createSpan("pronouns", "", pronouns.value, block)
     if (title.value.length > 0) createSpan("title", "", title.value, block)
@@ -66,7 +79,7 @@ function previewSignature(elementId){
     if (email.value.length > 0) createSpan("email", "", email.value, block)
     if (website.value.length > 0) createSpan("website", "", website.value, block)
 
-    // repeating the above for horizontal sections
+    // Repeating the above for horizontal section
     block = "#horizontalBlock"
     document.querySelector("#horizontalBlock").textContent = ""
     if (firstName.value.length > 0) createSpan("firstName", "font-weight:bolder;", firstName.value, block)
@@ -84,7 +97,7 @@ function previewSignature(elementId){
 
 
 
-// copies text within the selected div
+// Copies text within the selected div if the form is validated
 function selectText(block) {
     isValid = validateForm()
     if (isValid===false){}
@@ -99,7 +112,7 @@ function selectText(block) {
     }
 }
 
-// updates both vertical and horizontal signatures with default CWU medallion
+// Updates both vertical and horizontal signatures with default CWU Medallion
 function replaceMedallionLogo(){
     medallion = document.getElementById("verticalLogo")
     medallion.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-logo-min.png")
@@ -111,7 +124,7 @@ function replaceMedallionLogo(){
     medallion.setAttribute("height", "28")
 }
 
-// updates both vertical and horizontal signatures with wildcat sports logo
+// Updates both vertical and horizontal signatures with Wildcat Sports logo
 function replaceWildcatLogo(){
     wildcat = document.getElementById("verticalLogo")
     wildcat.setAttribute("src","https://www.cwu.edu/about/media-resources/brand/_images/cwu-athletics-rgb.png")
@@ -123,24 +136,36 @@ function replaceWildcatLogo(){
     wildcat.setAttribute("height", "90")
 }
 
-// returns true if name, pronouns, and email are entered in
+// Returns true if name, pronouns, and email are entered in. If not, sets labels to red and adds a star
 function validateForm() {
     validated = true;
 
     if (document.signatureForm.firstName.value == "") {
         alert("Please enter your name.")
+        firstNameLabel = document.getElementById("firstNameLabel")
+        firstNameLabel.textContent = "Full Name*"
+        firstNameLabel.setAttribute("style","color:#A30F32;")
         document.signatureForm.firstName.focus()
         validated = false
+    }
 
-    } else if (document.signatureForm.pronouns.value == "") {
+     else if (document.signatureForm.pronouns.value == "") {
         alert("Please enter your pronouns.")
+        pronounsLabel = document.getElementById("pronounsLabel")
+        pronounsLabel.textContent = "Pronouns*"
+        pronounsLabel.setAttribute("style","color:#A30F32;")
         document.signatureForm.pronouns.focus()
         validated = false    
 
-    } else if (document.signatureForm.email.value == "") {
+    }
+    else if (document.signatureForm.email.value == "") {
         alert("Please enter your email.")
+        emailLabel = document.getElementById("emailLabel")
+        emailLabel.textContent = "Email*"
+        emailLabel.setAttribute("style","color:#A30F32;")
         document.signatureForm.email.focus()
         validated = false
     }
+
     return validated
   }
