@@ -157,32 +157,40 @@ function replaceWildcatLogo(){
     wildcat.setAttribute("height", "90");
 }
 
-// Returns true if name, pronouns, and email are entered in. If not, sets labels to red and adds a star
+// Returns true if name and email are entered in. If not, sets labels to red and adds an asterisk
 function validateForm() {
     validated = true;
+    // Removing 
+    restoreLabel("firstNameLabel");
+    restoreLabel("emailLabel");
+
+    // Name
     if (document.signatureForm.firstName.value == "") {
         alert("Please enter your name.");
-        firstNameLabel = document.getElementById("firstNameLabel");
-        firstNameLabel.textContent = "Full Name*";
-        firstNameLabel.setAttribute("style","color:#A30F32;");
+        starLabel("firstNameLabel")
         document.signatureForm.firstName.focus();
         validated = false;
     }
-     else if (document.signatureForm.pronouns.value == "") {
-        alert("Please enter your pronouns.");
-        pronounsLabel = document.getElementById("pronounsLabel");
-        pronounsLabel.textContent = "Pronouns*";
-        pronounsLabel.setAttribute("style","color:#A30F32;");
-        document.signatureForm.pronouns.focus();
-        validated = false;
-    }
+    // Email
     else if (document.signatureForm.email.value == "") {
         alert("Please enter your email.");
-        emailLabel = document.getElementById("emailLabel");
-        emailLabel.textContent = "Email*";
-        emailLabel.setAttribute("style","color:#A30F32;");
+        starLabel('emailLabel');
         document.signatureForm.email.focus();
         validated = false;
     }
     return validated;
+}
+
+// Sets labels to red and adds an asterisk to grab attention
+function starLabel(label){
+    a = document.getElementById(label);
+    a.textContent += "*";
+    a.setAttribute("style", "color:#A30F32;");
+}
+
+// Removes asterisk and returns color of label back to black
+function restoreLabel(label){
+    a = document.getElementById(label);
+    a.textContent = a.textContent.replace("*","");
+    a.setAttribute("style", "");
 }
