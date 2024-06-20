@@ -70,7 +70,7 @@ function createEmail(value, block){
 function createWebsite(value, block){
     link = document.createElement("a");
     br = document.createElement("br");
-    link.setAttribute("href", value);
+    link.setAttribute("href", "https://www." + value);
     link.textContent = value;
     document.querySelector(block).appendChild(link);
     document.querySelector(block).appendChild(br);
