@@ -160,9 +160,12 @@ function replaceWildcatLogo(){
 // Returns true if name and email are entered in. If not, sets labels to red and adds an asterisk
 function validateForm() {
     validated = true;
-    // Removing 
+    // Removing labels if flagged previously
     restoreLabel("firstNameLabel");
     restoreLabel("emailLabel");
+    restoreLabel("phone1Label");
+    restoreLabel("phone2Label");
+
 
     // Name
     if (document.signatureForm.firstName.value == "") {
@@ -178,6 +181,34 @@ function validateForm() {
         document.signatureForm.email.focus();
         validated = false;
     }
+
+    // Checking validity of phone number - only checks if entered into and is not a required field
+    else if (document.signatureForm.phone1.value !== "") {
+        console.log("phone  entered in")
+        phone1Formatted = formatPhone(document.signatureForm.phone1.value)
+        if (phone1Formatted === false){
+            console.log(phone1Formatted)
+            validated = false;
+            alert("Please a valid phone number.");
+            document.signatureForm.phone1.focus();
+            starLabel("phone1Label");
+        }
+    }
+
+    else if (document.signatureForm.phone2.value !== "") {
+        console.log("phone  entered in")
+        phone2Formatted = formatPhone(document.signatureForm.phone2.value)
+        if (phone2Formatted === false){
+            console.log(phone2Formatted)
+            validated = false;
+            alert("Please a valid phone number.");
+            document.signatureForm.phone2.focus();
+            starLabel("phone2Label");
+        }
+
+
+    }
+
     return validated;
 }
 
@@ -193,4 +224,17 @@ function restoreLabel(label){
     a = document.getElementById(label);
     a.textContent = a.textContent.replace("*","");
     a.setAttribute("style", "");
+}
+
+// Checks if phone number is formatted correctly
+function formatPhone(phone){
+    phone = phone.toString();
+    phonenum = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    if(phone.match(phonenum)){
+        console.log('true')
+        return true;
+    } else {
+        console.log('false')
+        return false;
+    }
 }

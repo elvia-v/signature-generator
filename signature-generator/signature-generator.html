@@ -18,13 +18,16 @@
           padding-right: 1rem;
           padding-left: 1rem;
         }
+        .grid-x {
+          padding-top: 1rem;
+        }
       }
     </style>
   </head>
   <body>
     <!-- Top info callout-->
     <div class="grid-x grid-padding-x">
-      <div class="large-12 cell">
+      <div class="large-12 cell" style="padding-top: 1rem">
         <div class="callout" style="background-color: #A30F32; margin-bottom: 2rem;">
           <h1>Your Info</h1>
           <p>
@@ -69,11 +72,11 @@
             <input class="formInput form__field" id="roomNumber" name="roomNumber" type="text" placeholder="SURC 236" />
           </div>
           <div class="large-6 medium-4 cell">
-            <label class="sig-label" for="phone1">Phone</label>
+            <label class="sig-label" for="phone1" id="phone1Label">Phone</label>
             <input class="formInput form__field" id="phone1" name="phone1" type="text" placeholder="509-963-1111" />
           </div>
           <div class="large-6 medium-4 cell">
-            <label class="sig-label" for="phone2">Phone 2</label>
+            <label class="sig-label" for="phone2" id="phone2Label">Department Phone</label>
             <input class="formInput form__field" id="phone2" name="phone2" type="text" placeholder="509-963-2222" />
           </div>
           <div class="large-6 medium-4 cell">
